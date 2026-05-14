@@ -76,27 +76,6 @@
         </div>
     </header>
 
-    <!-- Stats -->
-    <section class="container" id="stats">
-        <div class="stats-wrapper">
-            <div class="stat-item">
-                <h3 class="counter" data-target="16">0</h3>
-                <p>Courses Offered</p>
-            </div>
-            <div class="stat-item">
-                <h3 class="counter" data-target="500">0</h3>
-                <p>Happy Students</p>
-            </div>
-            <div class="stat-item">
-                <h3 class="counter" data-target="10">0</h3>
-                <p>Expert Instructors</p>
-            </div>
-            <div class="stat-item">
-                <h3 class="counter" data-target="28">0</h3>
-                <p>Years of Excellence</p>
-            </div>
-        </div>
-    </section>
 
 
 
@@ -151,27 +130,7 @@
 
     <script src="js/nav.js"></script>
     <script src="js/courses.js"></script>
-    <script>
-        // Count-up animation
-        const counters = document.querySelectorAll('.counter');
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const el = entry.target;
-                    const target = +el.dataset.target;
-                    const step = Math.ceil(target / 60);
-                    let current = 0;
-                    const timer = setInterval(() => {
-                        current += step;
-                        if (current >= target) { el.textContent = target + '+'; clearInterval(timer); }
-                        else el.textContent = current;
-                    }, 30);
-                    observer.unobserve(el);
-                }
-            });
-        }, { threshold: 0.5 });
-        counters.forEach(c => observer.observe(c));
-    </script>
+
 </body>
 
 </html>
