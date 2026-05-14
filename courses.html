@@ -60,22 +60,20 @@
         <div class="container">
             <div class="courses-grid">
                 <script>
-                    const courseData = [
-                        { name: "IELTS", desc: "Comprehensive preparation for Academic and General Training with full-length mock tests and detailed feedback.", icon: "M12 2L2 7l10 5 10-5-10-5z M2 17l10 5 10-5M2 12l10 5 10-5" },
-                        { name: "Spoken English", desc: "Build fluency, confidence, and perfect pronunciation for real-world communication.", icon: "M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10z" },
-                        { name: "Grammar & Writing", desc: "Strengthen your foundation with robust grammar rules and professional writing techniques.", icon: "M12 20h9M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" },
-                        { name: "Advanced Writing", desc: "Master complex sentence structures, essays, and reports for academic excellence.", icon: "M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z M14 2v6h6 M16 13H8 M16 17H8 M10 9H8" },
-                        { name: "After SSC English", desc: "Specialized crash course to bridge the gap and prepare for further studies.", icon: "M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20" },
-                        { name: "Kid's English", desc: "Fun, interactive, and engaging sessions to build early language skills in young learners.", icon: "M17 11.23l-3.34 2.82a2 2 0 0 0-.74 1.55v2.85M7 11.23l3.34 2.82a2 2 0 0 1 .74 1.55v2.85 M2 12h20 M12 2a10 10 0 0 0-10 10 10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2z" },
-                        { name: "PTE", desc: "Complete computer-based test prep for study abroad and immigration purposes.", icon: "M20 14.66V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h5.34 M8 11l4 4 8-8 M22 4v6h-6" }
-                    ];
-                    document.write(courseData.map(c => `
-                        <div class="course-card">
-                            <div class="course-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="${c.icon}"></path></svg></div>
-                            <h3>${c.name}</h3>
-                            <p>${c.desc}</p>
-                            <a href="contact.html" class="course-link">Enquire Now <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
-                        </div>`).join(''));
+                    // COURSES is loaded from js/courses.js (at end of body)
+                    // Use a MutationObserver-safe approach — render after DOMContentLoaded
+                    document.addEventListener('DOMContentLoaded', () => {
+                        const grid = document.querySelector('.courses-grid');
+                        if (!grid || typeof COURSES === 'undefined') return;
+                        grid.innerHTML = COURSES.map(c => `
+                            <a href="course-detail.html#${c.id}" class="course-card course-card-link">
+                                <div class="course-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="${c.icon}"></path></svg></div>
+                                <h3>${c.name}</h3>
+                                ${c.badge ? `<div class="course-card-badge">${c.badge}</div>` : ''}
+                                <p>${c.tagline}</p>
+                                <span class="course-link">View Details <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
+                            </a>`).join('');
+                    });
                 </script>
             </div>
         </div>
