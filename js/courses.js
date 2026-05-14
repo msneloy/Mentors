@@ -179,30 +179,8 @@ const COURSES = [
             { num: '+8801321207487', display: '01321-207487', role: 'Call Center' },
         ],
     },
-    {
-        id: 'pte',
-        name: 'PTE',
-        badge: null,
-        color: '#795548',
-        icon: 'M20 14.66V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h5.34 M18 2l4 4-10 10H8v-4L18 2z',
-        tagline: 'Complete computer-based test prep for study abroad and immigration.',
-        description: 'The Pearson Test of English (PTE) is increasingly accepted worldwide for study abroad and immigration. Our expert instructors prepare you with targeted strategies, full mock tests, and score analysis to help you achieve your required score confidently.',
-        skills: ['Speaking', 'Writing', 'Reading', 'Listening'],
-        features: [
-            'Full PTE Mock Tests', 'Speaking & Writing Practice', 'Reading & Listening Strategies',
-            'Score Prediction & Analysis', 'Exam Registration Guidance', 'Online Practice Platform',
-            'Air-Conditioned Classroom', 'Certificate on Completion',
-        ],
-        details: [
-            { label: 'Type', value: 'Computer-based' },
-            { label: 'Focus', value: 'Study Abroad / Immigration' },
-            { label: 'Support', value: '9 AM – 9 PM daily' },
-        ],
-        phones: [
-            { num: '+8801321207486', display: '01321-207486', role: 'Reception' },
-        ],
-    },
 ];
+
 
 /* ── Shared SVG helper ────────────────────────────────────── */
 const phoneSVG = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>`;
