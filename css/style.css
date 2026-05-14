@@ -161,6 +161,13 @@ h4 {
     font-weight: 600;
 }
 
+.nav-logo-img {
+    height: 48px;
+    width: auto;
+    object-fit: contain;
+    display: block;
+}
+
 .nav-links {
     display: flex;
     gap: 30px;
@@ -1879,4 +1886,74 @@ h4 {
     opacity: 0.7;
     padding-left: 8px;
     white-space: nowrap;
+}
+
+/* ── Kids / Juniors English Course Section ─────────────── */
+.kids-section {
+    background: var(--bg-light);
+    border-top: 1px solid var(--border-color);
+}
+
+.kids-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.kids-level-badge {
+    display: inline-block;
+    background: #4CAF50;
+    color: white;
+    font-size: 0.85rem;
+    font-weight: 800;
+    padding: 4px 16px;
+    border-radius: 50px;
+    letter-spacing: 1px;
+    margin-bottom: 14px;
+}
+
+.kids-header h2 {
+    font-size: 2.4rem;
+    color: var(--text-main);
+    margin-bottom: 10px;
+}
+
+.kids-header h2 em {
+    font-style: normal;
+    color: var(--accent);
+}
+
+.kids-tagline {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    margin-bottom: 8px;
+}
+
+.kids-sub {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+.kids-skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.kids-skill-tag {
+    color: white;
+    font-weight: 700;
+    font-size: 0.95rem;
+    padding: 8px 22px;
+    border-radius: 6px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    transition: var(--transition);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+.kids-skill-tag:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.3);
 }
