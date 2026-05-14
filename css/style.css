@@ -1402,9 +1402,8 @@ a.course-card-link {
 
 .contact-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 40px;
-    align-items: stretch;
 }
 
 .contact-cards {
@@ -1520,12 +1519,18 @@ a.course-card-link {
 }
 
 .footer-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 30px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    padding-bottom: 30px;
+    padding-bottom: 40px;
     margin-bottom: 30px;
+}
+
+.footer-col {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
 .footer-logo {
@@ -2289,7 +2294,10 @@ a.course-card-link {
     padding: 9px 16px;
     border-radius: 8px;
     transition: var(--transition);
-    width: fit-content;
+    width: 100%;
+    max-width: 100%;
+    flex-wrap: wrap;
+    word-break: break-word;
 }
 
 .phone-btn svg {
