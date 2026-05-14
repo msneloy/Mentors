@@ -22,6 +22,7 @@ const COURSES = [
             { label: 'Target', value: 'All levels' },
             { label: 'Modules', value: 'Listening · Reading · Writing · Speaking' },
             { label: 'Support', value: '9 AM – 9 PM daily' },
+            { label: 'Fee', value: '৳13,800' },
         ],
         phones: [
             { num: '+8801321207486', display: '01321-207486', role: 'Reception' },
@@ -47,6 +48,7 @@ const COURSES = [
             { label: 'Duration', value: '3 months' },
             { label: 'Focus', value: 'Speaking & Listening' },
             { label: 'Classes', value: '3 days / week' },
+            { label: 'Fee', value: '৳8,395' },
         ],
         phones: [
             { num: '+8801321207486', display: '01321-207486', role: 'Reception' },
@@ -71,6 +73,7 @@ const COURSES = [
             { label: 'Duration', value: '2.5 months' },
             { label: 'Focus', value: 'Grammar & Writing' },
             { label: 'Classes', value: '3 days / week' },
+            { label: 'Fee', value: '৳7,245' },
         ],
         phones: [
             { num: '+8801321207486', display: '01321-207486', role: 'Reception' },
@@ -95,6 +98,7 @@ const COURSES = [
             { label: 'Duration', value: '2 months' },
             { label: 'Level', value: 'Intermediate–Advanced' },
             { label: 'Classes', value: '3 days / week' },
+            { label: 'Fee', value: '৳7,000' },
         ],
         phones: [
             { num: '+8801321207486', display: '01321-207486', role: 'Reception' },
@@ -120,6 +124,7 @@ const COURSES = [
             { label: 'Duration', value: '4 months' },
             { label: 'Classes', value: 'Fri & Sat · 2 hrs' },
             { label: 'Bonus', value: 'Arts & Crafts FREE' },
+            { label: 'Fee', value: '৳18,400 (30% Discount)' },
         ],
         phones: [
             { num: '+8801321207486', display: '01321-207486', role: 'Reception' },
@@ -173,6 +178,7 @@ const COURSES = [
             { label: 'Classes', value: '3 days / week · 2 hrs' },
             { label: 'ICT Course', value: '100% FREE' },
             { label: 'Language Club', value: '6 months FREE' },
+            { label: 'Fee', value: '৳7,705' },
         ],
         phones: [
             { num: '+8801321207486', display: '01321-207486', role: 'Reception' },
