@@ -1744,55 +1744,79 @@ a.course-card-link {
     }
 }
 
-/* ── Floating WhatsApp Button ───────────────────────────── */
-.whatsapp-float {
+/* ── Floating Action Buttons ────────────────────────────── */
+.floating-action-group {
     position: fixed;
     bottom: 32px;
     right: 32px;
     z-index: 999;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-end;
+}
+
+.action-float {
     display: flex;
     align-items: center;
     gap: 10px;
     text-decoration: none;
 }
 
-.whatsapp-float .wa-btn {
+.action-float .action-btn {
     width: 58px;
     height: 58px;
     border-radius: 50%;
-    background: #25D366;
     display: flex;
-    align-items: center;
     justify-content: center;
-    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.45);
+    align-items: center;
     transition: var(--transition);
+}
+
+.action-float.whatsapp-float .action-btn {
+    background: #25D366;
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.45);
     animation: waPulse 2.5s infinite;
 }
 
-.whatsapp-float:hover .wa-btn {
+.action-float.phone-float .action-btn {
+    background: var(--accent);
+    box-shadow: 0 6px 20px rgba(255, 26, 26, 0.45);
+}
+
+.action-float.phone-float .action-btn svg {
+    color: white;
+}
+
+.action-float:hover.whatsapp-float .action-btn {
     background: #1ebe5c;
     transform: scale(1.1);
     box-shadow: 0 10px 30px rgba(37, 211, 102, 0.55);
     animation: none;
 }
 
-.whatsapp-float .wa-tooltip {
+.action-float:hover.phone-float .action-btn {
+    transform: scale(1.1);
+    box-shadow: 0 10px 30px rgba(255, 26, 26, 0.55);
+}
+
+.action-float .action-tooltip {
     background: #111;
     color: #fff;
     font-size: 0.82rem;
     font-weight: 600;
     padding: 6px 12px;
-    border-radius: 8px;
+    border-radius: 6px;
     white-space: nowrap;
     opacity: 0;
-    transform: translateX(8px);
-    transition: var(--transition);
+    transform: translateX(10px);
+    transition: all 0.3s ease;
     pointer-events: none;
     order: -1;
     border: 1px solid var(--border-color);
 }
 
-.whatsapp-float:hover .wa-tooltip {
+.action-float:hover .action-tooltip {
     opacity: 1;
     transform: translateX(0);
 }
@@ -1803,7 +1827,7 @@ a.course-card-link {
     }
 
     70% {
-        box-shadow: 0 0 0 14px rgba(37, 211, 102, 0);
+        box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
     }
 
     100% {
@@ -1812,12 +1836,12 @@ a.course-card-link {
 }
 
 @media (max-width: 480px) {
-    .whatsapp-float {
+    .floating-action-group {
         bottom: 20px;
         right: 20px;
     }
 
-    .whatsapp-float .wa-tooltip {
+    .action-float .action-tooltip {
         display: none;
     }
 }
