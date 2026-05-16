@@ -948,6 +948,24 @@ a.course-card-link {
     transform: translateY(-2px);
 }
 
+/* ── Pink Theme Modifier (for specific team members) ── */
+.pink-theme {
+    --accent: #ff1493;
+}
+
+.pink-theme:hover {
+    box-shadow: 0 20px 40px rgba(255, 20, 147, 0.1);
+    border-color: rgba(255, 20, 147, 0.3);
+}
+
+.pink-theme:hover .team-avatar {
+    box-shadow: 0 0 0 4px rgba(255, 20, 147, 0.15);
+}
+
+.pink-theme .team-badge {
+    background: rgba(255, 20, 147, 0.1);
+}
+
 /* ── Instructors ───────────────────────────────────────── */
 .instructors-section {
     background: var(--surface);
