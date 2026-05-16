@@ -2294,12 +2294,6 @@ a.course-card-link {
     margin-top: 4px;
 }
 
-.phone-row {
-    display: flex;
-    gap: 10px;
-    align-items: stretch;
-}
-
 .phone-btn {
     display: inline-flex;
     align-items: center;
@@ -2314,33 +2308,6 @@ a.course-card-link {
     border-radius: 8px;
     transition: var(--transition);
     width: 100%;
-    flex: 1;
-    flex-wrap: wrap;
-    word-break: break-word;
-}
-
-.wa-btn-inline {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #25D366;
-    color: white;
-    border-radius: 8px;
-    padding: 0 16px;
-    transition: var(--transition);
-    flex-shrink: 0;
-}
-
-.wa-btn-inline:hover {
-    background: #1eb954;
-    transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
-}
-
-.wa-btn-inline svg {
-    width: 20px;
-    height: 20px;
-    fill: white;
 }
 
 .phone-btn svg {
