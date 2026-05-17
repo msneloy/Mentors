@@ -2679,3 +2679,12 @@ a.course-card-link {
         gap: 16px;
     }
 }
+/* ── Study Abroad Cards ──────────────────────────────────────────────── */
+.study-card {
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease, border-color 0.3s ease !important;
+}
+.study-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px var(--hover-glow, rgba(0, 0, 0, 0.2)) !important;
+    border-color: var(--hover-border, var(--accent)) !important;
+}
