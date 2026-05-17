@@ -9,10 +9,29 @@ if (hamburger && navLinks) {
 // Mark active nav link based on current page filename
 (function markActive() {
     const page = window.location.pathname.split('/').pop() || 'index.html';
-    document.querySelectorAll('.nav-links a').forEach(a => {
-        const href = a.getAttribute('href').split('/').pop();
-        if (href === page || (page === '' && href === 'index.html')) {
+    
+    // Remove any hardcoded active classes first
+    document.querySelectorAll('.nav-links a.active').forEach(a => a.classList.remove('active'));
+
+    document.querySelectorAll('.nav-links > li > a').forEach(a => {
+        const href = a.getAttribute('href') || '';
+        const raw_href = href.split('/').pop();
+        if (raw_href === page || (page === '' && raw_href === 'index.html')) {
+            a.classList.add('active');
+        } else if (raw_href === 'study-abroad.html' && page.startsWith('study-')) {
+            a.classList.add('active');
+        } else if (raw_href === 'courses.html' && page === 'course-detail.html') {
             a.classList.add('active');
         }
     });
+
+    // Also highlight the active dropdown item if on a subpage
+    document.querySelectorAll('.dropdown-menu a').forEach(a => {
+        const href = (a.getAttribute('href') || '').split('/').pop();
+        if (href === page) {
+            a.style.background = 'rgba(255, 26, 26, 0.08)';
+            a.style.color = 'var(--text-main)';
+        }
+    });
 })();
+
