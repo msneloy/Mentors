@@ -1035,6 +1035,17 @@ a.course-card-link {
     line-height: 1.6;
 }
 
+.instructor-qual a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.instructor-qual a:hover {
+    color: var(--primary);
+    text-decoration: underline;
+}
+
 .instructor-score {
     display: inline-flex;
     align-items: center;
