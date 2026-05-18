@@ -1385,6 +1385,88 @@ a.course-card-link {
     color: transparent;
 }
 
+.band-calculator-section {
+    margin: 36px 0 0;
+}
+
+.band-calculator-card {
+    background: var(--surface);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 32px;
+}
+
+.band-calculator-header h3 {
+    font-size: 1.8rem;
+    margin-bottom: 8px;
+}
+
+.band-calculator-header p {
+    color: var(--text-muted);
+    margin-bottom: 24px;
+}
+
+.band-calculator-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(150px, 1fr));
+    gap: 18px;
+    margin-bottom: 20px;
+}
+
+.band-calculator-grid label {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 0.92rem;
+    color: var(--text-main);
+}
+
+.band-calculator-grid input {
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 14px 16px;
+    background: var(--bg-light);
+    color: var(--text-main);
+    font-size: 1rem;
+    outline: none;
+}
+
+.band-calculator-actions {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 24px;
+}
+
+.result-label {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+}
+
+.result-score {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--accent);
+    margin-bottom: 10px;
+}
+
+.result-message {
+    color: var(--text-main);
+    max-width: 640px;
+}
+
+@media (max-width: 900px) {
+    .band-calculator-grid {
+        grid-template-columns: repeat(2, minmax(150px, 1fr));
+    }
+}
+
+@media (max-width: 620px) {
+    .band-calculator-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
 .free-support-banner {
     background: linear-gradient(135deg, rgba(255, 26, 26, 0.12) 0%, rgba(255, 26, 26, 0.04) 100%);
     border: 1px solid rgba(255, 26, 26, 0.3);

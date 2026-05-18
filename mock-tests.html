@@ -94,7 +94,7 @@
                         </div>
                         <div>
                             <div class="sched-label">Start Time</div>
-                            <div class="sched-value">9:00 AM</div>
+                            <div class="sched-value">11:00 AM</div>
                         </div>
                     </div>
                     <div class="schedule-row">
@@ -179,6 +179,41 @@
                 </div>
             </div>
 
+            <section class="band-calculator-section">
+                <div class="band-calculator-card">
+                    <div class="band-calculator-header">
+                        <h3>Interactive IELTS Band Calculator</h3>
+                        <p>Enter your practice scores for each module and estimate your overall IELTS band score instantly.</p>
+                    </div>
+                    <div class="band-calculator-grid">
+                        <label>
+                            Listening
+                            <input id="band-listening" class="band-input" type="number" min="0" max="9" step="0.5" value="6.5">
+                        </label>
+                        <label>
+                            Reading
+                            <input id="band-reading" class="band-input" type="number" min="0" max="9" step="0.5" value="6.5">
+                        </label>
+                        <label>
+                            Writing
+                            <input id="band-writing" class="band-input" type="number" min="0" max="9" step="0.5" value="6.5">
+                        </label>
+                        <label>
+                            Speaking
+                            <input id="band-speaking" class="band-input" type="number" min="0" max="9" step="0.5" value="6.5">
+                        </label>
+                    </div>
+                    <div class="band-calculator-actions">
+                        <button id="calculate-band" class="button-primary" type="button">Calculate Band</button>
+                    </div>
+                    <div class="band-calculator-result">
+                        <div class="result-label">Estimated Overall Band</div>
+                        <div id="band-result-value" class="result-score">6.5</div>
+                        <div id="band-result-message" class="result-message">Update a score to see your estimated band.</div>
+                    </div>
+                </div>
+            </section>
+
             <!-- Free Support Banner -->
             <div class="free-support-banner">
                 <div class="support-icon">
@@ -254,6 +289,43 @@
             </div>
         </a>
     </div>
+    <script>
+        function roundIeltsBand(value) {
+            return Math.round(value * 2) / 2;
+        }
+
+        function calculateIeltsBand() {
+            const listening = parseFloat(document.getElementById('band-listening').value) || 0;
+            const reading = parseFloat(document.getElementById('band-reading').value) || 0;
+            const writing = parseFloat(document.getElementById('band-writing').value) || 0;
+            const speaking = parseFloat(document.getElementById('band-speaking').value) || 0;
+            const average = (listening + reading + writing + speaking) / 4;
+            const band = roundIeltsBand(average);
+            const message = band >= 8
+                ? 'Excellent result — you are ready for most top universities.'
+                : band >= 6.5
+                    ? 'Strong performance — focus on fine-tuning your weaker modules.'
+                    : 'Keep practicing. Focus on the module(s) where your score is lowest.';
+
+            document.getElementById('band-result-value').textContent = band.toFixed(1);
+            document.getElementById('band-result-message').textContent = message;
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const inputs = document.querySelectorAll('.band-input');
+            const button = document.getElementById('calculate-band');
+
+            if (button) {
+                button.addEventListener('click', calculateIeltsBand);
+            }
+
+            inputs.forEach(input => {
+                input.addEventListener('input', calculateIeltsBand);
+            });
+
+            calculateIeltsBand();
+        });
+    </script>
     <script src="js/nav.js"></script>
     <script src="js/courses.js"></script>
 </body>
