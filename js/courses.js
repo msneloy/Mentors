@@ -25,7 +25,7 @@ const COURSES = [
         ],
         phones: [
             { num: '+8801321207486', display: '01321-207486', role: 'Reception' },
-            { num: '+8801321207487', display: '01321-207487', role: 'Call Center' },
+            { num: '+8801335197068', display: '01335-197068', role: 'Call Center' },
         ],
     },
     {
@@ -131,7 +131,7 @@ const COURSES = [
         ],
         phones: [
             { num: '+8801321207486', display: '01321-207486', role: 'Reception' },
-            { num: '+8801321207487', display: '01321-207487', role: 'Call Center' },
+            { num: '+8801335197068', display: '01335-197068', role: 'Call Center' },
         ],
     },
     {
@@ -157,7 +157,7 @@ const COURSES = [
         ],
         phones: [
             { num: '+8801321207486', display: '01321-207486', role: 'Reception' },
-            { num: '+8801321207487', display: '01321-207487', role: 'Call Center' },
+            { num: '+8801335197068', display: '01335-197068', role: 'Call Center' },
         ],
     },
     {
@@ -184,7 +184,7 @@ const COURSES = [
         ],
         phones: [
             { num: '+8801321207486', display: '01321-207486', role: 'Reception' },
-            { num: '+8801321207487', display: '01321-207487', role: 'Call Center' },
+            { num: '+8801335197068', display: '01335-197068', role: 'Call Center' },
         ],
     },
     {
@@ -213,7 +213,7 @@ const COURSES = [
         ],
         phones: [
             { num: '+8801321207486', display: '01321-207486', role: 'Reception' },
-            { num: '+8801321207487', display: '01321-207487', role: 'Call Center' },
+            { num: '+8801335197068', display: '01335-197068', role: 'Call Center' },
         ],
     },
     {
@@ -243,7 +243,7 @@ const COURSES = [
         ],
         phones: [
             { num: '+8801321207486', display: '01321-207486', role: 'Reception' },
-            { num: '+8801321207487', display: '01321-207487', role: 'Call Center' },
+            { num: '+8801335197068', display: '01335-197068', role: 'Call Center' },
         ],
     },
 ];
