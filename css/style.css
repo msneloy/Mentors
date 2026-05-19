@@ -124,6 +124,9 @@ h4 {
     transform: translateY(-2px);
 }
 
+.university-link { color: red; text-decoration: none; }
+.university-link:hover { text-decoration: none; }
+
 /* ── Navbar ────────────────────────────────────────────── */
 .navbar {
     position: fixed;
@@ -947,6 +950,9 @@ a.course-card-link {
     color: white;
     transform: translateY(-2px);
 }
+
+.university-link { color: red; text-decoration: none; }
+.university-link:hover { text-decoration: none; }
 
 /* ── Pink Theme Modifier (for specific team members) ── */
 .pink-theme {
