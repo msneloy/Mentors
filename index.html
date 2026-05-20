@@ -199,6 +199,52 @@
     <script src="js/nav.js"></script>
     <script src="js/courses.js"></script>
     <script>
+        function parseCsv(text) {
+            const rows = [];
+            let row = [];
+            let field = '';
+            let inQuotes = false;
+
+            for (let i = 0; i < text.length; i++) {
+                const char = text[i];
+                const nextChar = text[i + 1];
+
+                if (inQuotes) {
+                    if (char === '"' && nextChar === '"') {
+                        field += '"';
+                        i += 1;
+                    } else if (char === '"') {
+                        inQuotes = false;
+                    } else {
+                        field += char;
+                    }
+                } else {
+                    if (char === '"') {
+                        inQuotes = true;
+                    } else if (char === ',') {
+                        row.push(field);
+                        field = '';
+                    } else if (char === '\r') {
+                        continue;
+                    } else if (char === '\n') {
+                        row.push(field);
+                        rows.push(row);
+                        row = [];
+                        field = '';
+                    } else {
+                        field += char;
+                    }
+                }
+            }
+
+            if (field.length > 0 || row.length > 0) {
+                row.push(field);
+                rows.push(row);
+            }
+
+            return rows.filter(r => !(r.length === 1 && r[0] === ''));
+        }
+
         async function fetchAndRenderCsvTable(url) {
             const container = document.getElementById('csv-table-container');
             const loader = document.getElementById('csv-loader');
@@ -214,23 +260,7 @@
                     throw new Error('Network response was not ok: ' + response.status + ' ' + response.statusText);
                 }
                 const csvText = await response.text();
-                const rows = csvText
-                    .trim()
-                    .split(/\r?\n/)
-                    .filter(line => line.length > 0)
-                    .map(line => {
-                        const values = [];
-                        const regex = /(?:"([^"]*(?:""[^"]*)*)"|([^",]*))(?:,|$)/g;
-                        let match;
-                        while ((match = regex.exec(line)) !== null) {
-                            if (match[1] !== undefined) {
-                                values.push(match[1].replace(/""/g, '"'));
-                            } else {
-                                values.push(match[2]);
-                            }
-                        }
-                        return values;
-                    });
+                const rows = parseCsv(csvText);
 
                 if (rows.length === 0) {
                     throw new Error('CSV file contains no rows.');
