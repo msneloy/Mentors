@@ -281,9 +281,40 @@
                 const tbody = document.createElement('tbody');
                 rows.slice(1).forEach(row => {
                     const tr = document.createElement('tr');
-                    row.forEach(cellText => {
+                    row.forEach((cellText, index) => {
                         const td = document.createElement('td');
-                        td.textContent = cellText;
+                        const columnName = (rows[0][index] || '').trim().toLowerCase();
+
+                        if (columnName === 'signup form') {
+                            const signupValue = (cellText || '').trim();
+                            const button = document.createElement('a');
+                            button.className = 'btn btn-primary';
+                            button.textContent = 'Sign up';
+                            button.target = '_blank';
+                            button.rel = 'noopener';
+
+                            if (/^https?:\/\//i.test(signupValue)) {
+                                button.href = signupValue;
+                            } else {
+                                button.href = 'contact.html';
+                                button.title = signupValue ? `Register for ${signupValue}` : 'Register for this class';
+                            }
+
+                            td.appendChild(button);
+
+                            if (signupValue && !/^https?:\/\//i.test(signupValue)) {
+                                const note = document.createElement('span');
+                                note.style.display = 'block';
+                                note.style.marginTop = '0.4rem';
+                                note.style.fontSize = '0.85rem';
+                                note.style.color = 'var(--text-muted)';
+                                note.textContent = signupValue;
+                                td.appendChild(note);
+                            }
+                        } else {
+                            td.textContent = cellText;
+                        }
+
                         tr.appendChild(td);
                     });
                     tbody.appendChild(tr);
