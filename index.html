@@ -113,6 +113,18 @@
         </div>
     </section>
 
+    <section class="section-padding schedule" style="background:var(--bg-light); border-top:1px solid var(--border-color);">
+        <div class="container" style="max-width:1100px; margin:auto;">
+            <div style="margin-bottom:30px; text-align:center;">
+                <h2 style="font-size:2rem; margin-bottom:12px; color:var(--text-main);">Upcoming Free Classes</h2>
+                <p style="max-width:760px; margin:auto; color:var(--text-muted); line-height:1.7;">See the latest free class schedule below and sign up using the form to secure your seat — availability is limited.</p>
+            </div>
+            <div id="csv-table-container" class="table-responsive">
+                <p id="csv-loader" style="padding: 30px; margin:0; color:var(--text-main);">Loading table, please wait...</p>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
@@ -186,6 +198,82 @@
 
     <script src="js/nav.js"></script>
     <script src="js/courses.js"></script>
+    <script>
+        async function fetchAndRenderCsvTable(url) {
+            const container = document.getElementById('csv-table-container');
+            const loader = document.getElementById('csv-loader');
+            if (!container) return;
+            if (loader) {
+                loader.textContent = 'Loading table, please wait...';
+            }
+
+            try {
+                console.log('Fetching CSV from:', url);
+                const response = await fetch(url, { mode: 'cors' });
+                if (!response.ok) {
+                    throw new Error('Network response was not ok: ' + response.status + ' ' + response.statusText);
+                }
+                const csvText = await response.text();
+                const rows = csvText
+                    .trim()
+                    .split(/\r?\n/)
+                    .filter(line => line.length > 0)
+                    .map(line => {
+                        const values = [];
+                        const regex = /(?:"([^"]*(?:""[^"]*)*)"|([^",]*))(?:,|$)/g;
+                        let match;
+                        while ((match = regex.exec(line)) !== null) {
+                            if (match[1] !== undefined) {
+                                values.push(match[1].replace(/""/g, '"'));
+                            } else {
+                                values.push(match[2]);
+                            }
+                        }
+                        return values;
+                    });
+
+                if (rows.length === 0) {
+                    throw new Error('CSV file contains no rows.');
+                }
+
+                const table = document.createElement('table');
+                table.className = 'schedule-table';
+
+                const thead = document.createElement('thead');
+                const headerRow = document.createElement('tr');
+                rows[0].forEach(headerText => {
+                    const th = document.createElement('th');
+                    th.textContent = headerText;
+                    headerRow.appendChild(th);
+                });
+                thead.appendChild(headerRow);
+
+                const tbody = document.createElement('tbody');
+                rows.slice(1).forEach(row => {
+                    const tr = document.createElement('tr');
+                    row.forEach(cellText => {
+                        const td = document.createElement('td');
+                        td.textContent = cellText;
+                        tr.appendChild(td);
+                    });
+                    tbody.appendChild(tr);
+                });
+
+                table.appendChild(thead);
+                table.appendChild(tbody);
+                container.innerHTML = '';
+                container.appendChild(table);
+            } catch (error) {
+                const message = error && error.message ? error.message : 'Unknown error';
+                container.innerHTML = '<div style="padding:30px; color:var(--accent); font-weight:700;">Unable to load table data: ' + message + '. Please refresh or check the CSV URL.</div>';
+                console.error('CSV fetch/render error:', error);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            fetchAndRenderCsvTable('https://docs.google.com/spreadsheets/d/e/2PACX-1vQ7KPcPrcFxZc3TgMAVjH3Zv3FCDdafdD9H8i6IznF0UKUNQ7mak4dyQb1f9jj2jruf1LGryXv3vsyJ/pub?gid=1658759406&single=true&output=csv');
+        });
+    </script>
 
 </body>
 
