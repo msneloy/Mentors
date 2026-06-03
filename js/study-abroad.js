@@ -35,10 +35,6 @@ function renderStudyDetail() {
     root.innerHTML = `
     <div class="page-hero">
       <div class="container">
-        <a href="study-abroad.html" class="cd-back">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
-          Study Abroad
-        </a>
         <h1>Study in <em style="color: var(--accent); font-style: normal">${country.name}</em> ${country.flag}</h1>
         <p>${country.tagline}</p>
       </div>
@@ -83,6 +79,11 @@ function renderStudyDetail() {
                 <a href="tel:+8801321207486" class="btn btn-primary">Call Now: 01321-207486</a>
                 <a href="contact.html" class="btn btn-outline">Visit Office</a>
             </div>
+        <div style="margin-top: 48px; border-top: 1px solid var(--border-color); padding-top: 32px; text-align: center;">
+          <a href="study-abroad.html" class="cd-back" style="margin-bottom: 0;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+            Back to All Destinations
+          </a>
         </div>
       </div>
     </section>

@@ -435,10 +435,6 @@ function renderDetailPage() {
     <!-- Hero -->
     <div class="cd-hero" style="--course-color:${c.color}">
       <div class="container">
-        <a href="courses.html" class="cd-back">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
-          All Courses
-        </a>
         <div class="cd-hero-content">
           <div class="cd-hero-icon" style="background:${c.color}20;border-color:${c.color}40">
             <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="${c.color}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="${c.icon}"></path></svg>
@@ -480,6 +476,12 @@ function renderDetailPage() {
               <a href="contact.html" class="cd-contact-link">Visit Contact Page →</a>
             </div>
           </aside>
+        </div>
+        <div style="margin-top: 48px; border-top: 1px solid var(--border-color); padding-top: 32px; text-align: center;">
+          <a href="courses.html" class="cd-back" style="margin-bottom: 0;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+            Back to All Courses
+          </a>
         </div>
       </div>
     </div>`;
