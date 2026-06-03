@@ -37,6 +37,4 @@ if (hamburger && navLinks) {
       a.classList.add("active");
     }
   });
-
-});
-}) ();
+})();
