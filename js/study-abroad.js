@@ -129,47 +129,8 @@ function renderStudyOverview() {
   `;
 }
 
-/**
- * Build the Study Abroad dropdown in the navigation.
- */
-function buildStudyDropdown() {
-    const navItem = document.querySelector('.nav-links li a[href="study-abroad.html"]');
-    if (!navItem) return;
-
-    const li = navItem.parentElement;
-    li.classList.add('has-dropdown');
-
-    // Cleanup any existing dropdowns
-    const existing = li.querySelector('.dropdown-menu');
-    if (existing) existing.remove();
-    const existingArrow = li.querySelector('.dropdown-arrow');
-    if (existingArrow) existingArrow.remove();
-
-    const arrow = document.createElement('span');
-    arrow.className = 'dropdown-arrow';
-    arrow.innerHTML = `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>`;
-    navItem.appendChild(arrow);
-
-    const ul = document.createElement('ul');
-    ul.className = 'dropdown-menu';
-    ul.style.minWidth = '220px';
-
-    STUDY_COUNTRIES.forEach(c => {
-        const item = document.createElement('li');
-        item.innerHTML = `<a href="study-detail.html#${c.id}" class="dropdown-item"><span style="margin-right: 8px">${c.flag}</span> ${c.name}</a>`;
-        ul.appendChild(item);
-    });
-
-    const viewAll = document.createElement('li');
-    viewAll.innerHTML = `<a href="study-abroad.html" class="dropdown-viewall">Overview &rarr;</a>`;
-    ul.appendChild(viewAll);
-
-    li.appendChild(ul);
-}
-
 // Init
 document.addEventListener('DOMContentLoaded', () => {
-    buildStudyDropdown();
     if (document.getElementById('study-detail-root')) {
         renderStudyDetail();
         window.addEventListener('hashchange', renderStudyDetail);

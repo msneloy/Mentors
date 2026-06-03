@@ -38,13 +38,5 @@ if (hamburger && navLinks) {
     }
   });
 
-  // Also highlight the active dropdown item if on a subpage
-  document.querySelectorAll(".dropdown-menu a").forEach((a) => {
-    const href = (a.getAttribute("href") || "").split("/").pop();
-    const currentFull = page + window.location.hash;
-    if (href === page || href === currentFull) {
-      a.style.background = "rgba(255, 26, 26, 0.08)";
-      a.style.color = "var(--text-main)";
-    }
-  });
-})();
+});
+}) ();

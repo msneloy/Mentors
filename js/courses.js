@@ -486,33 +486,7 @@ function renderDetailPage() {
 }
 
 /* ── Dropdown Injection ───────────────────────────────────── */
-function buildDropdown() {
-  // Inject the course list into the Courses navigation dropdown.
-  const courseNavItem = document.querySelector(
-    '.nav-links li a[href="courses.html"]',
-  );
-  if (!courseNavItem) return;
-  const li = courseNavItem.parentElement;
-  li.classList.add("has-dropdown");
-  const arrow = document.createElement("span");
-  arrow.className = "dropdown-arrow";
-  arrow.innerHTML = `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>`;
-  courseNavItem.appendChild(arrow);
-  const ul = document.createElement("ul");
-  ul.className = "dropdown-menu";
-  COURSES.forEach((c) => {
-    const item = document.createElement("li");
-    item.innerHTML = `<a href="course-detail.html#${c.id}" class="dropdown-item">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="${c.icon}"></path></svg>
-      <span>${c.name}</span>${c.badge ? `<small>${c.badge}</small>` : ""}
-    </a>`;
-    ul.appendChild(item);
-  });
-  const viewAll = document.createElement("li");
-  viewAll.innerHTML = `<a href="courses.html" class="dropdown-viewall">View All Courses →</a>`;
-  ul.appendChild(viewAll);
-  li.appendChild(ul);
-}
+// Dropdown injection removed per user request for simpler navigation.
 
 /* ── Modal Build & Events ─────────────────────────────────── */
 function buildModal() {
@@ -598,7 +572,6 @@ function closeModal() {
 
 /* ── Init ─────────────────────────────────────────────────── */
 document.addEventListener("DOMContentLoaded", () => {
-  buildDropdown();
   if (document.getElementById("course-detail-root")) {
     renderDetailPage();
     window.addEventListener("hashchange", renderDetailPage);
