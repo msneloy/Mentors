@@ -23,7 +23,10 @@ function initNav() {
     const raw_href = href.split("/").pop();
     if (raw_href === page || (page === "" && raw_href === "index.html")) {
       a.classList.add("active");
-    } else if (raw_href === "study-abroad.html" && (page === "study-detail.html" || page.startsWith("study-"))) {
+    } else if (
+      raw_href === "study-abroad.html" &&
+      (page === "study-detail.html" || page.startsWith("study-"))
+    ) {
       a.classList.add("active");
     } else if (raw_href === "courses.html" && page === "course-detail.html") {
       a.classList.add("active");

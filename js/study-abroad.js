@@ -6,33 +6,38 @@
  * Render the detail page for a specific country.
  */
 function renderStudyDetail() {
-    const root = document.getElementById('study-detail-root');
-    if (!root) return;
+  const root = document.getElementById("study-detail-root");
+  if (!root) return;
 
-    const countryId = location.hash.replace('#', '') || location.search.replace('?country=', '');
-    const country = STUDY_COUNTRIES.find(c => c.id === countryId);
+  const countryId =
+    location.hash.replace("#", "") || location.search.replace("?country=", "");
+  const country = STUDY_COUNTRIES.find((c) => c.id === countryId);
 
-    if (!country) {
-        root.innerHTML = `
+  if (!country) {
+    root.innerHTML = `
       <div style="text-align:center; padding:100px 20px;">
         <h2 style="color:var(--text-main)">Country not found</h2>
         <p style="color:var(--text-muted); margin:12px 0 24px">Please browse our supported countries below.</p>
         <a href="study-abroad.html" class="btn btn-primary">Back to Overview</a>
       </div>`;
-        return;
-    }
+    return;
+  }
 
-    document.title = `Study in ${country.name} | Mentors' Noakhali`;
+  document.title = `Study in ${country.name} | Mentors' Noakhali`;
 
-    const uniCards = country.universities.map(uni => `
+  const uniCards = country.universities
+    .map(
+      (uni) => `
     <div class="uni-card">
       <span class="uni-check">✓</span>
       <a href="${uni.link}" class="university-link" target="_blank" rel="noopener">${uni.name}</a>
-      ${uni.location ? `<span class="uni-location">${uni.location}</span>` : ''}
+      ${uni.location ? `<span class="uni-location">${uni.location}</span>` : ""}
     </div>
-  `).join('');
+  `,
+    )
+    .join("");
 
-    root.innerHTML = `
+  root.innerHTML = `
     <div class="page-hero">
       <div class="container">
         <h1>Study in <em style="color: var(--accent); font-style: normal">${country.name}</em> ${country.flag}</h1>
@@ -115,19 +120,21 @@ function renderStudyDetail() {
  * Render the country overview grid on study-abroad.html
  */
 function renderStudyOverview() {
-    const root = document.getElementById('study-overview-root');
-    if (!root) return;
+  const root = document.getElementById("study-overview-root");
+  if (!root) return;
 
-    const cards = STUDY_COUNTRIES.map(c => `
+  const cards = STUDY_COUNTRIES.map(
+    (c) => `
     <div class="study-card" style="--hover-glow: ${c.glowColor}; --hover-border: ${c.borderColor}; background: var(--surface); border-radius: 12px; padding: 30px; box-shadow: var(--shadow-sm); text-align: center; border: 1px solid var(--border-color); transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease, border-color 0.3s ease;">
       <div style="font-size: 3rem; margin-bottom: 15px;">${c.flag}</div>
       <h3 style="margin-bottom: 10px;">${c.name}</h3>
       <p style="font-size: 0.9rem; color:var(--text-muted); min-height: 2.7rem;">${c.tagline}</p>
       <a href="study-detail.html#${c.id}" style="color:var(--accent); font-size:0.9rem; margin-top:15px; display:inline-block; text-decoration:none; font-weight: 500;">View Details →</a>
     </div>
-  `).join('');
+  `,
+  ).join("");
 
-    root.innerHTML = `
+  root.innerHTML = `
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-bottom: 60px;">
       ${cards}
     </div>
@@ -135,12 +142,12 @@ function renderStudyOverview() {
 }
 
 // Init
-document.addEventListener('DOMContentLoaded', () => {
-    if (document.getElementById('study-detail-root')) {
-        renderStudyDetail();
-        window.addEventListener('hashchange', renderStudyDetail);
-    }
-    if (document.getElementById('study-overview-root')) {
-        renderStudyOverview();
-    }
+document.addEventListener("DOMContentLoaded", () => {
+  if (document.getElementById("study-detail-root")) {
+    renderStudyDetail();
+    window.addEventListener("hashchange", renderStudyDetail);
+  }
+  if (document.getElementById("study-overview-root")) {
+    renderStudyOverview();
+  }
 });

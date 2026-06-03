@@ -83,24 +83,24 @@ const FLOATING_HTML = `
 `;
 
 function injectComponents() {
-    const navbar = document.querySelector(".navbar");
-    if (navbar) navbar.innerHTML = NAVBAR_HTML;
+  const navbar = document.querySelector(".navbar");
+  if (navbar) navbar.innerHTML = NAVBAR_HTML;
 
-    const footer = document.querySelector(".footer");
-    if (footer) footer.innerHTML = FOOTER_HTML;
+  const footer = document.querySelector(".footer");
+  if (footer) footer.innerHTML = FOOTER_HTML;
 
-    const floating = document.querySelector(".floating-action-group");
-    if (floating) floating.innerHTML = FLOATING_HTML;
+  const floating = document.querySelector(".floating-action-group");
+  if (floating) floating.innerHTML = FLOATING_HTML;
 
-    // Re-initialize navigation logic (hamburger and active links)
-    if (window.refreshNav) {
-        window.refreshNav();
-    }
+  // Re-initialize navigation logic (hamburger and active links)
+  if (window.refreshNav) {
+    window.refreshNav();
+  }
 }
 
 // Ensure injection happens as soon as possible, but after DOM is ready
 if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", injectComponents);
+  document.addEventListener("DOMContentLoaded", injectComponents);
 } else {
-    injectComponents();
+  injectComponents();
 }
