@@ -473,6 +473,10 @@ function renderDetailPage() {
               <div class="cd-pills">${pills}</div>
               <div class="cd-cta-title">Enquire or Enrol Now</div>
               <div class="ssc-phone-group">${phones}</div>
+              <div style="margin-top: 16px; display: flex; flex-direction: column; gap: 10px;">
+                <a href="index.html#free-classes" class="btn btn-outline" style="width: 100%; text-align: center;">View Free Classes</a>
+                <a href="https://forms.gle/kUEHTQW5c7j5K121A" target="_blank" rel="noopener" class="btn btn-primary" style="width: 100%; text-align: center;">Get in Touch</a>
+              </div>
               <a href="contact.html" class="cd-contact-link">Visit Contact Page →</a>
             </div>
           </aside>
