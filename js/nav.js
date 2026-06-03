@@ -31,7 +31,7 @@ if (hamburger && navLinks) {
     const raw_href = href.split("/").pop();
     if (raw_href === page || (page === "" && raw_href === "index.html")) {
       a.classList.add("active");
-    } else if (raw_href === "study-abroad.html" && page.startsWith("study-")) {
+    } else if (raw_href === "study-abroad.html" && (page === "study-detail.html" || page.startsWith("study-"))) {
       a.classList.add("active");
     } else if (raw_href === "courses.html" && page === "course-detail.html") {
       a.classList.add("active");
@@ -41,7 +41,8 @@ if (hamburger && navLinks) {
   // Also highlight the active dropdown item if on a subpage
   document.querySelectorAll(".dropdown-menu a").forEach((a) => {
     const href = (a.getAttribute("href") || "").split("/").pop();
-    if (href === page) {
+    const currentFull = page + window.location.hash;
+    if (href === page || href === currentFull) {
       a.style.background = "rgba(255, 26, 26, 0.08)";
       a.style.color = "var(--text-main)";
     }
