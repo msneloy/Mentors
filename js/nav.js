@@ -1,31 +1,23 @@
-/* ============================================================
-   Navigation behavior
-   ============================================================ */
-
-// Mobile hamburger toggle
-const hamburger = document.querySelector(".hamburger");
-const navLinks = document.querySelector(".nav-links");
-if (hamburger && navLinks) {
-  hamburger.addEventListener("click", () =>
-    navLinks.classList.toggle("active"),
-  );
-  navLinks
-    .querySelectorAll("a")
-    .forEach((a) =>
-      a.addEventListener("click", () => navLinks.classList.remove("active")),
+function initNav() {
+  const hamburger = document.querySelector(".hamburger");
+  const navLinks = document.querySelector(".nav-links");
+  if (hamburger && navLinks) {
+    hamburger.addEventListener("click", () =>
+      navLinks.classList.toggle("active"),
     );
-}
+    navLinks
+      .querySelectorAll("a")
+      .forEach((a) =>
+        a.addEventListener("click", () => navLinks.classList.remove("active")),
+      );
+  }
 
-// Mark active nav link based on current page filename
-(function markActive() {
   const page = window.location.pathname.split("/").pop() || "index.html";
 
-  // Remove any hardcoded active classes first.
   document
     .querySelectorAll(".nav-links a.active")
     .forEach((a) => a.classList.remove("active"));
 
-  // Determine which nav link should be active based on the current page.
   document.querySelectorAll(".nav-links > li > a").forEach((a) => {
     const href = a.getAttribute("href") || "";
     const raw_href = href.split("/").pop();
@@ -37,4 +29,14 @@ if (hamburger && navLinks) {
       a.classList.add("active");
     }
   });
-})();
+}
+
+// Initialize on DOMContentLoaded or immediately if already loaded
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initNav);
+} else {
+  initNav();
+}
+
+// Expose to window for manual re-init if needed
+window.refreshNav = initNav;
