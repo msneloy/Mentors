@@ -1678,6 +1678,12 @@ a.course-card-link {
   box-shadow: 0 4px 12px rgba(255, 26, 26, 0.3);
 }
 
+.schedule-call-btn {
+  display: block;
+  margin-top: 20px;
+  text-align: center;
+}
+
 .price-card.best-value .price-card-btn {
   box-shadow: 0 4px 15px rgba(255, 26, 26, 0.25);
 }
