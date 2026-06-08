@@ -1,6 +1,19 @@
+function initTheme() {
+  const savedTheme = localStorage.getItem("theme") || "dark";
+  document.documentElement.setAttribute("data-theme", savedTheme);
+  
+  // Set initial state of toggle if it exists
+  const themeToggle = document.getElementById("theme-toggle");
+  if (themeToggle) {
+    // Optional: add visual feedback if needed
+  }
+}
+
 function initNav() {
   const hamburger = document.querySelector(".hamburger");
   const navLinks = document.querySelector(".nav-links");
+  const themeToggle = document.getElementById("theme-toggle");
+
   if (hamburger && navLinks) {
     hamburger.addEventListener("click", () =>
       navLinks.classList.toggle("active"),
@@ -10,6 +23,16 @@ function initNav() {
       .forEach((a) =>
         a.addEventListener("click", () => navLinks.classList.remove("active")),
       );
+  }
+
+  if (themeToggle && !themeToggle.dataset.listenerAttached) {
+    themeToggle.addEventListener("click", () => {
+      const currentTheme = document.documentElement.getAttribute("data-theme");
+      const newTheme = currentTheme === "light" ? "dark" : "light";
+      document.documentElement.setAttribute("data-theme", newTheme);
+      localStorage.setItem("theme", newTheme);
+    });
+    themeToggle.dataset.listenerAttached = "true";
   }
 
   const page = window.location.pathname.split("/").pop() || "index.html";
@@ -33,6 +56,9 @@ function initNav() {
     }
   });
 }
+
+// Initialize theme as early as possible to avoid flash
+initTheme();
 
 // Initialize on DOMContentLoaded or immediately if already loaded
 if (document.readyState === "loading") {
