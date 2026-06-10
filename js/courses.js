@@ -12,7 +12,7 @@
    ============================================================ */
 
 /* ── Course Data ──────────────────────────────────────────── */
-const COURSES = [
+var COURSES = [
   {
     id: "ielts",
     name: "Basic to IELTS",
@@ -580,11 +580,83 @@ function closeModal() {
   }, 300);
 }
 
+/* ── Page Content (for courses.html) ─────────────────────── */
+var COURSES_PAGE_CONTENT = {
+  hero: {
+    title: "Our <em>Courses</em>",
+    description: "Comprehensive programmes designed by experts to help you succeed in every English challenge.",
+    ctas: [
+      { text: "View Free Classes", link: "index.html#free-classes", class: "btn-outline" },
+      { text: "Get in Touch", link: "https://forms.gle/kUEHTQW5c7j5K121A", class: "btn-primary" }
+    ]
+  },
+  freeResources: {
+    title: "Free <em style='color: var(--accent); font-style: normal'>Learning Resources</em>",
+    description: "Unlock exclusive IELTS, PTE, and English learning materials at no cost. Get study guides, practice exercises, vocabulary lists, and exam tips from our expert instructors.",
+    items: [
+      { icon: "📚", title: "IELTS Prep Pack", desc: "Complete study materials, mock tests & band prediction tools" },
+      { icon: "🎯", title: "PTE Resources", desc: "Practice modules, sample papers & exam strategy guides" },
+      { icon: "🌟", title: "English Mastery", desc: "Grammar, vocabulary, pronunciation & conversation exercises" }
+    ],
+    cta: {
+      title: "Ready to Get Started?",
+      desc: "Fill out the form below to unlock all resources.",
+      btnText: "Access Free Resources →",
+      link: "https://forms.gle/wdYQqFao3pfwRiWQA"
+    }
+  }
+};
+
+/**
+ * Render the full courses page (courses.html)
+ */
+function renderCoursesPage() {
+  const heroRoot = document.querySelector(".page-hero");
+  const gridRoot = document.querySelector(".courses-grid");
+  const freeResourcesRoot = document.getElementById("free-resources-root");
+
+  if (typeof COURSES_PAGE_CONTENT === "undefined") return;
+
+  // 1. Render Hero
+  if (heroRoot && COURSES_PAGE_CONTENT.hero) {
+    if (typeof renderHero === "function") {
+      renderHero(heroRoot, COURSES_PAGE_CONTENT.hero);
+    }
+  }
+
+  // 2. Render Courses Grid
+  if (gridRoot && typeof COURSES !== "undefined") {
+    gridRoot.innerHTML = COURSES.map(
+      (c) => `
+      <a href="course-detail.html#${c.id}" class="course-card course-card-link">
+        <div class="course-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="${c.icon}"></path>
+          </svg>
+        </div>
+        <h3>${c.name}</h3>
+        ${c.badge ? `<div class="course-card-badge">${c.badge}</div>` : ""}
+        <p>${c.tagline}</p>
+        <span class="course-link">View Details <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
+      </a>`,
+    ).join("");
+  }
+
+  // 3. Render Free Resources
+  if (freeResourcesRoot && COURSES_PAGE_CONTENT.freeResources) {
+    if (typeof renderFreeResources === "function") {
+      renderFreeResources(freeResourcesRoot, COURSES_PAGE_CONTENT.freeResources);
+    }
+  }
+}
+
 /* ── Init ─────────────────────────────────────────────────── */
 document.addEventListener("DOMContentLoaded", () => {
   if (document.getElementById("course-detail-root")) {
     renderDetailPage();
     window.addEventListener("hashchange", renderDetailPage);
+  } else if (document.querySelector(".courses-grid")) {
+    renderCoursesPage();
   } else {
     buildModal();
   }
