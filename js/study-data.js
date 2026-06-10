@@ -880,6 +880,112 @@ const STUDY_COUNTRIES = [
     universities: [],
   },
   {
+    id: "finland",
+    name: "Finland",
+    flag: "🇫🇮",
+    glowColor: "rgba(0, 53, 128, 0.4)",
+    borderColor: "#003580",
+    tagline: "World-class education with generous post-study work rights.",
+    universities: [
+      {
+        name: "Tampere University",
+        location: "Tampere",
+        link: "https://www.tuni.fi/en",
+      },
+      {
+        name: "Tampere University Of Applied Science (TAMK)",
+        location: "Tampere",
+        link: "https://www.tuni.fi/en/about-us/tamk",
+      },
+      {
+        name: "Turku University Of Applied Science",
+        location: "Turku",
+        link: "https://www.turkuamk.fi/en/",
+      },
+      {
+        name: "University Of Jyvaskyla",
+        location: "Jyvaskyla",
+        link: "https://www.jyu.fi/en",
+      },
+      {
+        name: "University Of Vaasa",
+        location: "Vaasa",
+        link: "https://www.uwasa.fi/en",
+      },
+      {
+        name: "University Of Eastern Finland",
+        location: "Joensuu/Kuopio",
+        link: "https://www.uef.fi/en",
+      },
+      {
+        name: "Metropolia University Of Applied Science",
+        location: "Helsinki",
+        link: "https://www.metropolia.fi/en",
+      },
+      {
+        name: "Hanken School Of Economics",
+        location: "Helsinki",
+        link: "https://www.hanken.fi/en",
+      },
+    ],
+  },
+  {
+    id: "netherlands",
+    name: "Netherlands",
+    flag: "🇳🇱",
+    glowColor: "rgba(174, 28, 40, 0.4)",
+    borderColor: "#AE1C28",
+    tagline:
+      "Innovative teaching methods and a strong focus on international students.",
+    universities: [
+      {
+        name: "University Of Twente (Twente College UG pathway)",
+        location: "Enschede",
+        link: "https://www.utwente.nl/en/",
+      },
+      {
+        name: "Maastricht School Of Management",
+        location: "Maastricht",
+        link: "https://www.msm.nl/",
+      },
+      {
+        name: "Wittenborg University Of Applied Science",
+        location: "Amsterdam/Apeldoorn",
+        link: "https://www.wittenborg.eu/",
+      },
+      {
+        name: "Tio Business School",
+        location: "Amsterdam",
+        link: "https://www.tio.nl/en/",
+      },
+      {
+        name: "The Hague University Of Applied Science",
+        location: "The Hague",
+        link: "https://www.thehagueuniversity.com/",
+      },
+    ],
+  },
+  {
+    id: "hungary",
+    name: "Hungary",
+    flag: "🇭🇺",
+    glowColor: "rgba(67, 111, 77, 0.4)",
+    borderColor: "#436F4D",
+    tagline: "Affordable high-quality education in the heart of Europe.",
+    universities: [
+      {
+        name: "University Of Gyor",
+        location: "Gyor",
+        link: "https://admissions.sze.hu/about-the-university",
+      },
+      {
+        name: "University Of Debrecen",
+        location: "Debrecen",
+        link: "https://www.edu.unideb.hu/",
+      },
+    ],
+  },
+  {
     id: "bangladesh",
     name: "Bangladesh",
     flag: "🇧🇩",
