@@ -13,11 +13,31 @@ var CONTACT_BRANCHES = [
         icon: "phone",
         title: "Phone / WhatsApp",
         items: [
-          { number: "+8801321207486", display: "01321-207486", role: "Reception" },
-          { number: "+8801321207487", display: "01321-207487", role: "Marketing" },
-          { number: "+8801321207488", display: "01321-207488", role: "Study Abroad" },
-          { number: "+8801335197067", display: "01335-197067", role: "Front Desk" },
-          { number: "+8801335197068", display: "01335-197068", role: "Call Center" },
+          {
+            number: "+8801321207486",
+            display: "01321-207486",
+            role: "Reception",
+          },
+          {
+            number: "+8801321207487",
+            display: "01321-207487",
+            role: "Marketing",
+          },
+          {
+            number: "+8801321207488",
+            display: "01321-207488",
+            role: "Study Abroad",
+          },
+          {
+            number: "+8801335197067",
+            display: "01335-197067",
+            role: "Front Desk",
+          },
+          {
+            number: "+8801335197068",
+            display: "01335-197068",
+            role: "Call Center",
+          },
         ],
       },
       {
@@ -29,21 +49,29 @@ var CONTACT_BRANCHES = [
           { address: "mentors.noakhali.branch@gmail.com", role: "Reception" },
           { address: "mentors.noakhali.classroom@gmail.com", role: "Office" },
           { address: "mentorsnkstudyabroad@gmail.com", role: "Study Abroad" },
-          { address: "mentors.noakhali.socials@gmail.com", role: "Social Media" },
+          {
+            address: "mentors.noakhali.socials@gmail.com",
+            role: "Social Media",
+          },
         ],
       },
       {
         type: "address",
         icon: "map",
         title: "Visit Our Branch",
-        description: "Mentors' Noakhali Branch<br />Main Road, Noakhali Sadar<br />Noakhali, Chattogram, Bangladesh",
-        link: { href: "https://maps.app.goo.gl/3a1pvTc4tru7opkg9", text: "View on Google Maps →" },
+        description:
+          "Mentors' Noakhali Branch<br />Main Road, Noakhali Sadar<br />Noakhali, Chattogram, Bangladesh",
+        link: {
+          href: "https://maps.app.goo.gl/3a1pvTc4tru7opkg9",
+          text: "View on Google Maps →",
+        },
       },
       {
         type: "hours",
         icon: "clock",
         title: "Office Hours",
-        schedule: "<strong>Sat &ndash; Thu:</strong> 8:00 AM &ndash; 9:00 PM<br /><strong>Friday:</strong> Closed",
+        schedule:
+          "<strong>Sat &ndash; Thu:</strong> 8:00 AM &ndash; 9:00 PM<br /><strong>Friday:</strong> Closed",
       },
     ],
     map: {
@@ -56,7 +84,8 @@ var CONTACT_BRANCHES = [
     sectionClass: "contact head-office-section",
     header: {
       title: "Mentors Head Office",
-      subtitle: "Find the Mentors Head Office address, office hours, phone, email, and location below.",
+      subtitle:
+        "Find the Mentors Head Office address, office hours, phone, email, and location below.",
     },
     cards: [
       {
@@ -84,8 +113,12 @@ var CONTACT_BRANCHES = [
         type: "address",
         icon: "map",
         title: "Head Office",
-        description: "<strong>166/1 Mirpur Road (Beside Dolphin Goli), Kalabagan, Dhaka-1205</strong>",
-        link: { href: "https://maps.app.goo.gl/3amtfx3JB3ScGNo6A", text: "Open in Google Maps →" },
+        description:
+          "<strong>166/1 Mirpur Road (Beside Dolphin Goli), Kalabagan, Dhaka-1205</strong>",
+        link: {
+          href: "https://maps.app.goo.gl/3amtfx3JB3ScGNo6A",
+          text: "Open in Google Maps →",
+        },
       },
     ],
     map: {

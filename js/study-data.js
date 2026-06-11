@@ -1015,32 +1015,41 @@ var STUDY_COUNTRIES = [
 
 var STUDY_PAGE_CONTENT = {
   hero: {
-    title: "Your Trusted <em style='color: var(--accent); font-style: normal'>Study Abroad Consultants</em>",
-    description: "From university selection to visa processing, we guide Noakhali students to top destinations.",
-    ctas: []
+    title:
+      "Your Trusted <em style='color: var(--accent); font-style: normal'>Study Abroad Consultants</em>",
+    description:
+      "From university selection to visa processing, we guide Noakhali students to top destinations.",
+    ctas: [],
   },
   destinationsSection: {
     title: "Study Destinations We Cover",
-    description: "Mentors' Noakhali connects you directly to prestigious universities globally. You do not need to travel to Dhaka to process your visa application."
+    description:
+      "Mentors' Noakhali connects you directly to prestigious universities globally. You do not need to travel to Dhaka to process your visa application.",
   },
   whySection: {
     title: "Why Mentors' Study Abroad?",
     points: [
       {
         title: "One-stop solution:",
-        desc: "From preparation aid for standardized tests to university admission and visa process support."
+        desc: "From preparation aid for standardized tests to university admission and visa process support.",
       },
       {
         title: "Experienced and expert counselors",
-        desc: ""
-      }
+        desc: "",
+      },
     ],
-    certifications: ["AIRC", "ICEF Academy", "PIER", "Imagine Canada", "Education UK"]
+    certifications: [
+      "AIRC",
+      "ICEF Academy",
+      "PIER",
+      "Imagine Canada",
+      "Education UK",
+    ],
   },
   benefits: {
     title: "Added Benefits",
     items: ["NO FILE OPENING FEE*", "NO SERVICE CHARGE", "NO HIDDEN COST"],
-    footnote: "* Conditions apply for specific countries."
+    footnote: "* Conditions apply for specific countries.",
   },
   services: {
     title: "Study Abroad Services",
@@ -1052,8 +1061,8 @@ var STUDY_PAGE_CONTENT = {
       "Document Verification",
       "Visa Processing",
       "Pre-Departure Briefing",
-      "Post-Departure Services"
-    ]
+      "Post-Departure Services",
+    ],
   },
   notePoints: {
     title: "Points to Note",
@@ -1061,21 +1070,31 @@ var STUDY_PAGE_CONTENT = {
       [
         "University application fee (if any) will be paid by the student.",
         "Visa fee or SEVIS fee (USA) will be paid by the student.",
-        "Document notarization fees will be paid by the student."
+        "Document notarization fees will be paid by the student.",
       ],
       [
         "Tuition fee will be transferred directly to the university through bank transfer by the student.",
         "For USA, Denmark and Sweden - File Opening Fee: BDT 5,000; Security Deposit (fully refundable)*: BDT 70,000",
-        "For other countries, there is no file opening fee or security deposit."
-      ]
-    ]
+        "For other countries, there is no file opening fee or security deposit.",
+      ],
+    ],
   },
   readySection: {
     title: "Ready to Begin Your Journey?",
     description: "Contact our Noakhali branch to explore your options.",
     ctas: [
-      { text: "Call Us: +8801321207488", link: "tel:+8801321207488", class: "btn-primary", icon: "phone" },
-      { text: "Send Message", link: "https://m.me/mentorsnoakhali", class: "btn-outline", icon: "message" }
-    ]
-  }
+      {
+        text: "Call Us: +8801321207488",
+        link: "tel:+8801321207488",
+        class: "btn-primary",
+        icon: "phone",
+      },
+      {
+        text: "Send Message",
+        link: "https://m.me/mentorsnoakhali",
+        class: "btn-outline",
+        icon: "message",
+      },
+    ],
+  },
 };

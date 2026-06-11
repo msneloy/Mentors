@@ -13,8 +13,22 @@ var HOME_DATA = {
           acceptance from the UK, USA, Canada, or Australia, our expert team in
           Maijdee, Noakhali is here to guide you every step of the way.`,
     ctas: [
-      { text: "Explore Our Courses", link: "courses.html", class: "btn-primary" },
-      { text: "View Free Classes", link: "#free-classes", class: "btn-outline" },
+      {
+        text: "Explore Our Courses",
+        link: "courses.html",
+        class: "btn-primary",
+      },
+      {
+        text: "Assess Your English",
+        link: "english-assessment.html",
+        class: "btn-outline",
+        target: "_blank",
+      },
+      {
+        text: "View Free Classes",
+        link: "#free-classes",
+        class: "btn-outline",
+      },
       { text: "Contact Us", link: "contact.html", class: "btn-outline" },
     ],
   },
@@ -81,11 +95,17 @@ var HOME_DATA = {
       "Centralized Examination & Result-Based Evaluation & Reporting Unified System",
     description:
       "Our state-of-the-art unified test-taker platform where students can sit mock exams, track scores, review detailed performance analytics, and benchmark against peers — all in one place.",
-    pills: ["📝 Mock Tests", "📊 Score Analytics", "🏆 Leaderboards", "🔐 Secure Login"],
+    pills: [
+      "📝 Mock Tests",
+      "📊 Score Analytics",
+      "🏆 Leaderboards",
+      "🔐 Secure Login",
+    ],
     cta: {
       text: "Enter C.E.R.B.E.R.U.S.",
       link: "https://mnkb.vercel.app/",
     },
-    footnote: "Accessible to all enrolled Mentors students · No app download required",
+    footnote:
+      "Accessible to all enrolled Mentors students · No app download required",
   },
 };

@@ -77,7 +77,8 @@ function renderPricing() {
   const el = document.getElementById("mock-pricing");
   if (!el || typeof MOCK_PRICING === "undefined") return;
 
-  el.innerHTML = MOCK_PRICING.map((plan) => `
+  el.innerHTML = MOCK_PRICING.map(
+    (plan) => `
     <div class="price-card ${plan.bestValue ? "best-value" : ""}">
       ${plan.bestValue ? '<div class="best-value-badge">Best Value</div>' : ""}
       <div class="price-exams">${plan.count}</div>
@@ -86,7 +87,8 @@ function renderPricing() {
       <div class="price-per">${plan.per}</div>
       <span class="price-saving ${!plan.saving ? "base" : ""}">${plan.saving || "—"}</span>
     </div>
-  `).join("");
+  `,
+  ).join("");
 }
 
 function renderSupportBanner() {

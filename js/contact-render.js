@@ -17,7 +17,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const root = document.getElementById("contact-root");
   if (!root || typeof CONTACT_BRANCHES === "undefined") return;
 
-  root.innerHTML = CONTACT_BRANCHES.map((branch) => renderBranch(branch)).join("");
+  root.innerHTML = CONTACT_BRANCHES.map((branch) => renderBranch(branch)).join(
+    "",
+  );
 });
 
 function renderBranch(branch) {
@@ -63,7 +65,9 @@ function renderCard(card) {
     case "email-simple":
       bodyHTML = `<p class="contact-desc">${card.description}</p>`;
       if (card.link) {
-        const target = card.link.href.startsWith("http") ? ' target="_blank" rel="noopener"' : "";
+        const target = card.link.href.startsWith("http")
+          ? ' target="_blank" rel="noopener"'
+          : "";
         bodyHTML += `<a href="${card.link.href}"${target} class="styled-link">${card.link.text}</a>`;
       }
       break;

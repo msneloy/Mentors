@@ -169,22 +169,26 @@ function renderStudyOverview() {
           <div style="background: var(--surface); border-radius: 12px; padding: 40px; box-shadow: var(--shadow-sm); border: 1px solid var(--border-color);">
             <h2 style="font-size: 1.8rem; margin-bottom: 25px; color: var(--text-main); border-bottom: 2px solid var(--border-color); padding-bottom: 15px;">${STUDY_PAGE_CONTENT.whySection.title}</h2>
             <ul style="list-style: none; padding: 0; margin-bottom: 25px">
-              ${STUDY_PAGE_CONTENT.whySection.points.map(p => `
+              ${STUDY_PAGE_CONTENT.whySection.points
+                .map(
+                  (p) => `
                 <li style="margin-bottom: 15px; padding-left: 30px; position: relative; color: var(--text-main);">
                   <span style="position: absolute; left: 0; color: var(--accent)">✓</span>
                   <strong>${p.title}</strong> ${p.desc}
                 </li>
-              `).join('')}
+              `,
+                )
+                .join("")}
             </ul>
             <h4 style="color: var(--text-muted); margin-bottom: 15px; font-size: 1rem; text-transform: uppercase; letter-spacing: 1px;">Certified & Trained By:</h4>
             <div style="display: flex; flex-wrap: wrap; gap: 10px">
-              ${STUDY_PAGE_CONTENT.whySection.certifications.map(c => `<span style="background: var(--surface-2); padding: 8px 15px; border-radius: 6px; font-size: 0.9rem; color: var(--text-main);">${c}</span>`).join('')}
+              ${STUDY_PAGE_CONTENT.whySection.certifications.map((c) => `<span style="background: var(--surface-2); padding: 8px 15px; border-radius: 6px; font-size: 0.9rem; color: var(--text-main);">${c}</span>`).join("")}
             </div>
           </div>
           <div style="background: var(--surface); border-radius: 12px; padding: 40px; box-shadow: var(--shadow-sm); border: 1px solid var(--border-color); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
             <h2 style="font-size: 1.8rem; margin-bottom: 30px; color: var(--accent); font-weight: 700;">${STUDY_PAGE_CONTENT.benefits.title}</h2>
             <div style="width: 100%; display: flex; flex-direction: column; gap: 15px;">
-              ${STUDY_PAGE_CONTENT.benefits.items.map(i => `<div style="background: var(--bg-light); border: 1px solid var(--border-color); padding: 20px; border-radius: 8px; font-size: 1.2rem; font-weight: bold; color: var(--text-main);">${i}</div>`).join('')}
+              ${STUDY_PAGE_CONTENT.benefits.items.map((i) => `<div style="background: var(--bg-light); border: 1px solid var(--border-color); padding: 20px; border-radius: 8px; font-size: 1.2rem; font-weight: bold; color: var(--text-main);">${i}</div>`).join("")}
             </div>
             <p style="margin-top: 20px; font-size: 0.8rem; color: var(--text-muted);">${STUDY_PAGE_CONTENT.benefits.footnote}</p>
           </div>
@@ -198,12 +202,16 @@ function renderStudyOverview() {
         <div style="background: var(--surface); border-radius: 12px; padding: 50px 40px; box-shadow: var(--shadow-sm); border: 1px solid var(--border-color); margin-bottom: 60px;">
           <h2 style="font-size: 2.2rem; margin-bottom: 40px; color: var(--text-main); text-align: center;">${STUDY_PAGE_CONTENT.services.title}</h2>
           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
-            ${STUDY_PAGE_CONTENT.services.items.map((s, idx) => `
+            ${STUDY_PAGE_CONTENT.services.items
+              .map(
+                (s, idx) => `
               <div style="display: flex; align-items: center; background: var(--surface-2); padding: 15px 25px; border-radius: 50px; border: 1px solid var(--border-color);">
                 <div style="background: var(--accent); color: white; width: 35px; height: 35px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.1rem; margin-right: 15px; flex-shrink: 0;">${idx + 1}</div>
                 <h4 style="font-size: 1.05rem; margin: 0; color: var(--text-main)">${s}</h4>
               </div>
-            `).join('')}
+            `,
+              )
+              .join("")}
           </div>
         </div>
       `;
@@ -218,16 +226,24 @@ function renderStudyOverview() {
             ${STUDY_PAGE_CONTENT.notePoints.title}
           </h3>
           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
-            ${STUDY_PAGE_CONTENT.notePoints.groups.map(group => `
+            ${STUDY_PAGE_CONTENT.notePoints.groups
+              .map(
+                (group) => `
               <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 15px;">
-                ${group.map(note => `
+                ${group
+                  .map(
+                    (note) => `
                   <li style="padding-left: 25px; position: relative; color: var(--text-main);">
                     <span style="position: absolute; left: 0; color: var(--accent)">▶</span>
                     ${note}
                   </li>
-                `).join('')}
+                `,
+                  )
+                  .join("")}
               </ul>
-            `).join('')}
+            `,
+              )
+              .join("")}
           </div>
         </div>
       `;
@@ -240,13 +256,17 @@ function renderStudyOverview() {
           <h2 style="font-size: 1.6rem; margin-bottom: 15px; color: var(--text-main);">${STUDY_PAGE_CONTENT.readySection.title}</h2>
           <p style="margin-bottom: 25px; color: var(--text-muted)">${STUDY_PAGE_CONTENT.readySection.description}</p>
           <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
-            ${STUDY_PAGE_CONTENT.readySection.ctas.map(cta => `
+            ${STUDY_PAGE_CONTENT.readySection.ctas
+              .map(
+                (cta) => `
               <a href="${cta.link}" class="btn ${cta.class}" style="padding: 14px 30px; font-size: 1.1rem; display: inline-flex; align-items: center; gap: 10px;">
-                ${cta.icon === 'phone' ? '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>' : ''}
-                ${cta.icon === 'message' ? '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>' : ''}
+                ${cta.icon === "phone" ? '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>' : ""}
+                ${cta.icon === "message" ? '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>' : ""}
                 ${cta.text}
               </a>
-            `).join('')}
+            `,
+              )
+              .join("")}
           </div>
         </div>
       `;

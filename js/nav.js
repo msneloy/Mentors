@@ -1,7 +1,7 @@
 function initTheme() {
   const savedTheme = localStorage.getItem("theme") || "dark";
   document.documentElement.setAttribute("data-theme", savedTheme);
-  
+
   // Set initial state of toggle if it exists
   const themeToggle = document.getElementById("theme-toggle");
   if (themeToggle) {

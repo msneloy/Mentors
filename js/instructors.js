@@ -29,6 +29,6 @@ function renderInstructors(container) {
         IELTS Score &ndash; ${ins.score}
       </span>
     </div>
-  `
+  `,
   ).join("");
 }

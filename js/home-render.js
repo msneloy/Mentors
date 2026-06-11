@@ -155,8 +155,9 @@ function parseCsv(text) {
 async function fetchAndRenderCsvTable(url) {
   const container = document.getElementById("csv-table-container");
   if (!container) return;
-  
-  container.innerHTML = '<p style="padding: 30px; margin: 0; color: var(--text-main)">Loading table, please wait...</p>';
+
+  container.innerHTML =
+    '<p style="padding: 30px; margin: 0; color: var(--text-main)">Loading table, please wait...</p>';
 
   try {
     const response = await fetch(url, { mode: "cors" });
@@ -167,7 +168,7 @@ async function fetchAndRenderCsvTable(url) {
 
     const table = document.createElement("table");
     table.className = "schedule-table";
-    
+
     // Header
     const thead = document.createElement("thead");
     const htr = document.createElement("tr");
@@ -208,6 +209,7 @@ async function fetchAndRenderCsvTable(url) {
     container.innerHTML = "";
     container.appendChild(table);
   } catch (e) {
-    container.innerHTML = '<div style="padding:30px; color:var(--accent);">Unable to load data.</div>';
+    container.innerHTML =
+      '<div style="padding:30px; color:var(--accent);">Unable to load data.</div>';
   }
 }

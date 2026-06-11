@@ -478,6 +478,13 @@ function renderDetailPage() {
               <div class="cd-cta-title">Enquire or Enrol Now</div>
               <div class="ssc-phone-group">${phones}</div>
               <div style="margin-top: 16px; display: flex; flex-direction: column; gap: 10px;">
+                ${
+                  c.id === "ielts" || c.id === "ielts-advanced"
+                    ? `
+                <a href="english-assessment.html" target="_blank" class="btn btn-outline" style="width: 100%; text-align: center; border-color: var(--accent); color: var(--text-main); background: rgba(255, 26, 26, 0.05);">Assess Your English</a>
+                `
+                    : ""
+                }
                 <a href="index.html#free-classes" class="btn btn-outline" style="width: 100%; text-align: center;">View Free Classes</a>
                 <a href="https://forms.gle/kUEHTQW5c7j5K121A" target="_blank" rel="noopener" class="btn btn-primary" style="width: 100%; text-align: center;">Get in Touch</a>
               </div>
@@ -584,27 +591,56 @@ function closeModal() {
 var COURSES_PAGE_CONTENT = {
   hero: {
     title: "Our <em>Courses</em>",
-    description: "Comprehensive programmes designed by experts to help you succeed in every English challenge.",
+    description:
+      "Comprehensive programmes designed by experts to help you succeed in every English challenge.",
     ctas: [
-      { text: "View Free Classes", link: "index.html#free-classes", class: "btn-outline" },
-      { text: "Get in Touch", link: "https://forms.gle/kUEHTQW5c7j5K121A", class: "btn-primary" }
-    ]
+      {
+        text: "View Free Classes",
+        link: "index.html#free-classes",
+        class: "btn-outline",
+      },
+      {
+        text: "Assess Your English",
+        link: "english-assessment.html",
+        class: "btn-outline",
+        target: "_blank",
+      },
+      {
+        text: "Get in Touch",
+        link: "https://forms.gle/kUEHTQW5c7j5K121A",
+        class: "btn-primary",
+      },
+    ],
   },
   freeResources: {
-    title: "Free <em style='color: var(--accent); font-style: normal'>Learning Resources</em>",
-    description: "Unlock exclusive IELTS, PTE, and English learning materials at no cost. Get study guides, practice exercises, vocabulary lists, and exam tips from our expert instructors.",
+    title:
+      "Free <em style='color: var(--accent); font-style: normal'>Learning Resources</em>",
+    description:
+      "Unlock exclusive IELTS, PTE, and English learning materials at no cost. Get study guides, practice exercises, vocabulary lists, and exam tips from our expert instructors.",
     items: [
-      { icon: "📚", title: "IELTS Prep Pack", desc: "Complete study materials, mock tests & band prediction tools" },
-      { icon: "🎯", title: "PTE Resources", desc: "Practice modules, sample papers & exam strategy guides" },
-      { icon: "🌟", title: "English Mastery", desc: "Grammar, vocabulary, pronunciation & conversation exercises" }
+      {
+        icon: "📚",
+        title: "IELTS Prep Pack",
+        desc: "Complete study materials, mock tests & band prediction tools",
+      },
+      {
+        icon: "🎯",
+        title: "PTE Resources",
+        desc: "Practice modules, sample papers & exam strategy guides",
+      },
+      {
+        icon: "🌟",
+        title: "English Mastery",
+        desc: "Grammar, vocabulary, pronunciation & conversation exercises",
+      },
     ],
     cta: {
       title: "Ready to Get Started?",
       desc: "Fill out the form below to unlock all resources.",
       btnText: "Access Free Resources →",
-      link: "https://forms.gle/wdYQqFao3pfwRiWQA"
-    }
-  }
+      link: "https://forms.gle/wdYQqFao3pfwRiWQA",
+    },
+  },
 };
 
 /**
@@ -645,7 +681,10 @@ function renderCoursesPage() {
   // 3. Render Free Resources
   if (freeResourcesRoot && COURSES_PAGE_CONTENT.freeResources) {
     if (typeof renderFreeResources === "function") {
-      renderFreeResources(freeResourcesRoot, COURSES_PAGE_CONTENT.freeResources);
+      renderFreeResources(
+        freeResourcesRoot,
+        COURSES_PAGE_CONTENT.freeResources,
+      );
     }
   }
 }
