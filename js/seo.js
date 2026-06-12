@@ -7,12 +7,18 @@
 (function() {
     // Comprehensive list of 1000+ highly relevant keywords from Excel
     const SEO_KEYWORDS = [
-        "Mahadi Sajjad Neloy",
         "Mentors Noakhali",
         "Mentors Noakhali Branch",
         "Mentors IELTS Noakhali",
         "IELTS Noakhali",
         "Noakhali IELTS",
+        "free english assessment",
+        "free ielts assessment noakhali",
+        "free pte assessment noakhali",
+        "ielts pte diagnostic test",
+        "english level check noakhali",
+        "mentors noakhali free test",
+        "free english level test",
         "kids English Noakhali",
         "junior English Noakhali",
         "spoken English Noakhali",
@@ -1062,6 +1068,10 @@
             {
                 name: "Spoken English Noakhali",
                 description: "Practical English speaking and grammar course in Noakhali for career growth."
+            },
+            {
+                name: "Free English & IELTS Assessment Test",
+                description: "Get a free diagnostic level test for English, IELTS, and PTE at Mentors' Noakhali Branch. Instant results and recommendation."
             }
         ];
 

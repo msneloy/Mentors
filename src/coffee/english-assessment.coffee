@@ -246,15 +246,13 @@ QS = [
 S = { idx: 0, ans: {}, timeLeft: 180000, timer: null, hlMode: false }
 
 initTheme = ->
-  saved = localStorage.getItem("ea-theme") or "dark"
+  saved = localStorage.getItem("theme") or "dark"
   document.documentElement.setAttribute "data-theme", saved
 
 window.toggleTheme = ->
   next = if document.documentElement.getAttribute("data-theme") is "light" then "dark" else "light"
   document.documentElement.setAttribute "data-theme", next
-  localStorage.setItem "ea-theme", next
-  btn = document.getElementById "theme-toggle-btn"
-  btn.innerHTML = (if next is "light" then svgMoon() else svgSun()) if btn
+  localStorage.setItem "theme", next
 
 app = -> document.getElementById "app"
 $ = (id) -> document.getElementById id
@@ -270,10 +268,12 @@ isCorrect = (q, ua) ->
 renderIntro = ->
   app().innerHTML = """
     <div class="intro">
-      <div class="intro-brand">Mentors' <strong>Noakhali Branch</strong></div>
+      <div class="intro-brand">
+        <img src="Media/Mentors-Noakhali-Branch-Logo.png" alt="Mentors' Noakhali Branch" />
+      </div>
       <div class="intro-card">
         <h1>English Skill <em>Assessment</em></h1>
-        <p class="intro-sub">Find your level and get a personalised course recommendation.</p>
+        <p class="intro-sub">Take our <strong>Free English, IELTS, &amp; PTE</strong> assessment to find your level and get a personalised course recommendation.</p>
         <div class="meta-row">
           <div class="meta-pill">#{svgClock()} 30 Minutes</div>
           <div class="meta-pill">#{svgDoc()} 20 Questions</div>
@@ -312,13 +312,22 @@ renderExam = ->
   app().innerHTML = """
     <div class="exam">
       <div class="topbar">
+        <div class="topbar-logo">
+          <img src="Media/Mentors-Noakhali-Branch-Logo.png" alt="Mentors' Noakhali Branch" />
+        </div>
         <div class="sec-tabs">
           <div class="sec-tab #{if isReading then "on" else ""}">Section 1 — Reading</div>
           <div class="sec-tab #{if not isReading then "on" else ""}">Section 2 — Grammar</div>
         </div>
         <div class="topbar-right">
           <div class="timer" id="timer-display">#{fmtTime S.timeLeft}</div>
-          <button class="theme-btn" id="theme-toggle-btn" onclick="toggleTheme()" title="Toggle theme">#{if isDark then svgSun() else svgMoon()}</button>
+          <div class="theme-toggle" id="theme-toggle" onclick="toggleTheme()" aria-label="Switch Theme">
+            <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+            <div class="toggle-track">
+              <div class="toggle-thumb"></div>
+            </div>
+            <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+          </div>
           <button class="btn-submit" id="submit-btn">Submit Test</button>
         </div>
       </div>
@@ -541,9 +550,17 @@ renderResults = (score, timeout) ->
   app().innerHTML = """
     <div class="exam" style="overflow:hidden">
       <div class="topbar">
-        <div></div>
+        <div class="topbar-logo">
+          <img src="Media/Mentors-Noakhali-Branch-Logo.png" alt="Mentors' Noakhali Branch" />
+        </div>
         <div class="topbar-right">
-          <button class="theme-btn" id="theme-toggle-btn" onclick="toggleTheme()" title="Toggle theme">#{if isDark then svgSun() else svgMoon()}</button>
+          <div class="theme-toggle" id="theme-toggle" onclick="toggleTheme()" aria-label="Switch Theme">
+            <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+            <div class="toggle-track">
+              <div class="toggle-thumb"></div>
+            </div>
+            <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+          </div>
           <button class="btn-r" onclick="window.retakeTest()">Retake Test</button>
         </div>
       </div>
@@ -562,12 +579,12 @@ renderResults = (score, timeout) ->
             </div>
           </div>
           <div class="rec-card">
-            <div class="rec-badge">Recommended Course</div>
+            <div class="rec-badge">RECOMMENDED COURSE</div>
             <div class="rec-title">#{cName}</div>
             <p class="rec-desc">#{cDesc}</p>
             <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
               <a class="btn-rp" href="course-detail.html##{cId}" target="_blank">View Course</a>
-              <a class="btn-r" href="tel:+8801321207486">📞 Call Reception</a>
+              <a class="btn-r" href="tel:+8801321207486">#{svgPhone()} Call Reception</a>
             </div>
           </div>
           <div class="results-btns">
@@ -613,7 +630,7 @@ buildReview = ->
       <div class="rq">
         <div class="rq-head">
           <span class="rq-num">Q#{q.id} — #{secLabel}</span>
-          <span class="rq-badge #{if ok then "ok" else "no"}">#{if ok then "Correct" else "Incorrect"}</span>
+          <span class="rq-badge #{if ok then "ok" else "no"}">#{if ok then "CORRECT" else "INCORRECT"}</span>
         </div>
         <div class="rq-q">#{q.q}</div>
         <div class="rq-ans-grid">
@@ -644,6 +661,9 @@ svgRight = -> """<svg width="14" height="14" viewBox="0 0 24 24" fill="none" str
 svgSun = -> """<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>"""
 svgMoon = -> """<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>"""
 
+svgPhone = -> """<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="margin-bottom:-2px"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>"""
+
 document.addEventListener "DOMContentLoaded", ->
+  document.body.classList.add "assessment-page"
   initTheme()
   renderIntro()
