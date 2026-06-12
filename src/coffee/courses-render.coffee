@@ -1,0 +1,208 @@
+###
+  Mentors Courses Logic
+###
+
+# Shared SVG helpers
+phoneSVG = """<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>"""
+checkSVG = """<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>"""
+
+renderDetailPage = ->
+  root = document.getElementById 'course-detail-root'
+  return unless root
+
+  id = location.hash.replace("#", "") or location.search.replace("?course=", "")
+  c = window.COURSES?.find (x) -> x.id is id
+
+  unless c
+    root.innerHTML = """
+      <div style="text-align:center;padding:80px 20px">
+        <h2 style="color:var(--text-main)">Course not found</h2>
+        <p style="color:var(--text-muted);margin:12px 0 24px">Please <a href="courses.html" style="color:var(--accent)">browse all courses</a>.</p>
+      </div>
+    """
+    return
+
+  document.title = "#{c.name} — Mentors' Noakhali Branch"
+
+  skillTags = c.skills.map((s) -> "<span class=\"cd-skill-tag\">#{s}</span>").join('')
+  pills = c.details.map((d) -> """<div class="cd-pill"><span class="cd-pill-label">#{d.label}</span><span class="cd-pill-val">#{d.value}</span></div>""").join('')
+  features = c.features.map((f) -> """<div class="cd-feature">#{checkSVG}<span>#{f}</span></div>""").join('')
+  
+  phones = c.phones.map((p) ->
+    roleHtml = if p.role then " <span class=\"phone-role\">#{p.role}</span>" else ""
+    """
+    <a href="tel:#{p.num}" class="ssc-phone">
+      #{phoneSVG} #{p.display}#{roleHtml}
+    </a>
+    """
+  ).join('')
+  
+  badgeHtml = if c.badge then "<div class=\"cd-badge\">#{c.badge}</div>" else ""
+  
+  assessmentBtn = if c.id in ["ielts", "ielts-advanced"]
+    """<a href="english-assessment.html" target="_blank" class="btn btn-outline" style="width: 100%; text-align: center; border-color: var(--accent); color: var(--text-main); background: rgba(255, 26, 26, 0.05);">Assess Your English</a>"""
+  else ""
+
+  root.innerHTML = """
+    <!-- Hero -->
+    <div class="cd-hero" style="--course-color:#{c.color}">
+      <div class="container">
+        <div class="cd-hero-content">
+          <div class="cd-hero-icon" style="background:#{c.color}20;border-color:#{c.color}40">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#{c.color}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="#{c.icon}"></path></svg>
+          </div>
+          <div>
+            #{badgeHtml}
+            <h1>#{c.name}</h1>
+            <p class="cd-tagline">#{c.tagline}</p>
+            <div class="cd-skills">#{skillTags}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Body -->
+    <div class="cd-body section-padding">
+      <div class="container">
+        <div class="cd-layout">
+          <div class="cd-main">
+            <h2 class="cd-section-title">About This Course</h2>
+            <p class="cd-description">#{c.description}</p>
+            <h2 class="cd-section-title" style="margin-top:40px">What's Included</h2>
+            <div class="cd-features">#{features}</div>
+          </div>
+          <aside class="cd-sidebar">
+            <div class="cd-info-card">
+              <div class="cd-info-title">Course Info</div>
+              <div class="cd-pills">#{pills}</div>
+              <div class="cd-cta-title">Enquire or Enrol Now</div>
+              <div class="ssc-phone-group">#{phones}</div>
+              <div style="margin-top: 16px; display: flex; flex-direction: column; gap: 10px;">
+                #{assessmentBtn}
+                <a href="index.html#free-classes" class="btn btn-outline" style="width: 100%; text-align: center;">View Free Classes</a>
+                <a href="https://forms.gle/kUEHTQW5c7j5K121A" target="_blank" rel="noopener" class="btn btn-primary" style="width: 100%; text-align: center;">Get in Touch</a>
+              </div>
+              <a href="contact.html" class="cd-contact-link">Visit Contact Page →</a>
+            </div>
+          </aside>
+        </div>
+        <div style="margin-top: 48px; border-top: 1px solid var(--border-color); padding-top: 32px; text-align: center;">
+          <a href="courses.html" class="cd-back" style="margin-bottom: 0;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+            Back to All Courses
+          </a>
+        </div>
+      </div>
+    </div>
+  """
+
+renderCoursesPage = ->
+  heroRoot = document.querySelector ".page-hero"
+  gridRoot = document.querySelector ".courses-grid"
+  freeResourcesRoot = document.getElementById "free-resources-root"
+
+  return if typeof window.COURSES_PAGE_CONTENT is 'undefined'
+
+  # 1. Render Hero
+  if heroRoot and window.COURSES_PAGE_CONTENT.hero
+    window.renderHero(heroRoot, window.COURSES_PAGE_CONTENT.hero) if typeof window.renderHero is 'function'
+
+  # 2. Render Grid
+  if gridRoot and window.COURSES
+    gridRoot.innerHTML = window.COURSES.map((c) ->
+      badgeHtml = if c.badge then "<div class=\"course-card-badge\">#{c.badge}</div>" else ""
+      """
+      <a href="course-detail.html##{c.id}" class="course-card course-card-link">
+        <div class="course-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="#{c.icon}"></path>
+          </svg>
+        </div>
+        <h3>#{c.name}</h3>
+        #{badgeHtml}
+        <p>#{c.tagline}</p>
+        <span class="course-link">View Details <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 5"></polyline></svg></span>
+      </a>
+      """
+    ).join('')
+
+  # 3. Render Free Resources
+  if freeResourcesRoot and window.COURSES_PAGE_CONTENT.freeResources
+    window.renderFreeResources(freeResourcesRoot, window.COURSES_PAGE_CONTENT.freeResources) if typeof window.renderFreeResources is 'function'
+
+buildModal = ->
+  backdrop = document.createElement 'div'
+  backdrop.id = 'course-modal-backdrop'
+  backdrop.innerHTML = """
+    <div class="course-modal" id="course-modal" role="dialog" aria-modal="true">
+      <button class="modal-close" id="modal-close-btn" aria-label="Close">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+      <div class="modal-body" id="modal-body"></div>
+    </div>
+  """
+  document.body.appendChild backdrop
+  backdrop.addEventListener 'click', (e) -> closeModal() if e.target is backdrop
+  document.getElementById('modal-close-btn').addEventListener 'click', closeModal
+  document.addEventListener 'keydown', (e) -> closeModal() if e.key is 'Escape'
+
+# Global modal triggers
+window.openModal = (id) ->
+  c = window.COURSES?.find (x) -> x.id is id
+  return unless c
+  
+  phoneHtml = c.phones.map((p) ->
+    """<a href="tel:#{p.num}" class="modal-phone-btn">#{phoneSVG}#{p.display}</a>"""
+  ).join('')
+  
+  featuresHtml = c.features.map((f) -> """<div class="modal-feature">#{checkSVG}<span>#{f}</span></div>""").join('')
+  
+  detailsHtml = c.details.map((d) ->
+    """<div class="modal-detail-pill"><span class="pill-label">#{d.label}</span><span class="pill-val">#{d.value}</span></div>"""
+  ).join('')
+  
+  badgeHtml = if c.badge then "<div class=\"modal-badge\">#{c.badge}</div>" else ""
+  
+  document.getElementById('modal-body').innerHTML = """
+    <div class="modal-header">
+      <svg class="modal-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="#{c.icon}"></path></svg>
+      <div>
+        #{badgeHtml}
+        <h2>#{c.name}</h2>
+        <p class="modal-tagline">#{c.tagline}</p>
+      </div>
+    </div>
+    <div class="modal-pills">#{detailsHtml}</div>
+    <div class="modal-features-title">What's included</div>
+    <div class="modal-features">#{featuresHtml}</div>
+    <div class="modal-cta">
+      <p>Enquire or enrol now:</p>
+      <div class="modal-phones">#{phoneHtml}</div>
+      <a href="course-detail.html##{c.id}" class="cd-contact-link" style="display:inline-block;margin-top:14px">View Full Course Details →</a>
+    </div>
+  """
+  
+  backdrop = document.getElementById 'course-modal-backdrop'
+  backdrop.classList.add 'active'
+  document.body.style.overflow = 'hidden'
+  setTimeout (-> document.getElementById('course-modal').classList.add 'open'), 10
+
+window.closeModal = ->
+  modal = document.getElementById 'course-modal'
+  backdrop = document.getElementById 'course-modal-backdrop'
+  modal.classList.remove 'open'
+  setTimeout (->
+    backdrop.classList.remove 'active'
+    document.body.style.overflow = ""
+  ), 300
+
+document.addEventListener 'DOMContentLoaded', ->
+  if document.getElementById 'course-detail-root'
+    renderDetailPage()
+    window.addEventListener 'hashchange', renderDetailPage
+  else if document.querySelector '.courses-grid'
+    renderCoursesPage()
+  else
+    buildModal() unless document.getElementById 'course-modal-backdrop'

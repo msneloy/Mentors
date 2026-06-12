@@ -1,0 +1,26 @@
+{
+  "name": "mentors",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "coffee -c -o js/ src/coffee/",
+    "build:watch": "coffee -cw -o js/ src/coffee/",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/msneloy/Mentors.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/msneloy/Mentors/issues"
+  },
+  "homepage": "https://github.com/msneloy/Mentors#readme",
+  "devDependencies": {
+    "coffeescript": "^2.7.0"
+  }
+}

@@ -157,52 +157,10 @@
     </div>
     <!-- Page Scripts -->
 
-    <script>
-      function roundIeltsBand(value) {
-        return Math.round(value * 2) / 2;
-      }
-
-      function calculateIeltsBand() {
-        const listening =
-          parseFloat(document.getElementById("band-listening").value) || 0;
-        const reading =
-          parseFloat(document.getElementById("band-reading").value) || 0;
-        const writing =
-          parseFloat(document.getElementById("band-writing").value) || 0;
-        const speaking =
-          parseFloat(document.getElementById("band-speaking").value) || 0;
-        const average = (listening + reading + writing + speaking) / 4;
-        const band = roundIeltsBand(average);
-        const message =
-          band >= 8
-            ? "Excellent result — you are ready for most top universities."
-            : band >= 6.5
-              ? "Strong performance — focus on fine-tuning your weaker modules."
-              : "Keep practicing. Focus on the module(s) where your score is lowest.";
-
-        document.getElementById("band-result-value").textContent =
-          band.toFixed(1);
-        document.getElementById("band-result-message").textContent = message;
-      }
-
-      document.addEventListener("DOMContentLoaded", () => {
-        const inputs = document.querySelectorAll(".band-input");
-        const button = document.getElementById("calculate-band");
-
-        if (button) {
-          button.addEventListener("click", calculateIeltsBand);
-        }
-
-        inputs.forEach((input) => {
-          input.addEventListener("input", calculateIeltsBand);
-        });
-
-        calculateIeltsBand();
-      });
-    </script>
     <script src="js/components.js"></script>
     <script src="js/nav.js"></script>
     <script src="js/mock-tests-data.js"></script>
     <script src="js/mock-tests-render.js"></script>
+    <script src="js/band-calculator.js"></script>
   </body>
 </html>

@@ -1,0 +1,165 @@
+###
+  Study Abroad Data
+###
+
+window.STUDY_COUNTRIES = [
+  {
+    id: "uk"
+    name: "United Kingdom"
+    flag: "🇬🇧"
+    tagline: "Explore elite education, lucrative scholarships, and a vibrant international community."
+    glowColor: "rgba(1, 33, 105, 0.4)"
+    borderColor: "#012169"
+    universities: [
+      { name: "City, University of London", location: "London", link: "https://www.city.ac.uk" }
+      { name: "London Metropolitan University", location: "London", link: "https://www.londonmet.ac.uk" }
+      { name: "London South Bank University", location: "London", link: "https://www.lsbu.ac.uk" }
+      { name: "Middlesex University", location: "London", link: "https://www.mdx.ac.uk" }
+      { name: "University of East London (UEL)", location: "London", link: "https://www.uel.ac.uk" }
+      { name: "University of Greenwich", location: "London", link: "https://www.gre.ac.uk" }
+      { name: "University of Law", location: "London", link: "https://www.law.ac.uk" }
+      { name: "University of Westminster", location: "London", link: "https://www.westminster.ac.uk" }
+      { name: "Ulster University", location: "London", link: "https://www.ulster.ac.uk" }
+      { name: "Kingston University", location: "London", link: "https://www.kingston.ac.uk" }
+      { name: "Brunel University", location: "London", link: "https://www.brunel.ac.uk" }
+      { name: "University of Roehampton", location: "London", link: "https://www.roehampton.ac.uk" }
+      { name: "University of Hull - London", location: "London", link: "https://www.hull.ac.uk" }
+      { name: "Birmingham City University", location: "Birmingham", link: "https://www.bcu.ac.uk" }
+      { name: "University of the West of England", location: "Bristol", link: "https://www.uwe.ac.uk" }
+      { name: "University of Chester", location: "Chester", link: "https://www.chester.ac.uk" }
+      { name: "Coventry University", location: "Coventry", link: "https://www.coventry.ac.uk" }
+      { name: "Keele University", location: "Staffordshire", link: "https://www.keele.ac.uk" }
+      { name: "Lancaster University", location: "Lancaster", link: "https://www.lancaster.ac.uk" }
+      { name: "Leeds Beckett University", location: "Leeds", link: "https://www.leedsbeckett.ac.uk" }
+      { name: "De Montfort University", location: "Leicester", link: "https://www.dmu.ac.uk" }
+      { name: "Liverpool John Moores University", location: "Liverpool", link: "https://www.ljmu.ac.uk" }
+      { name: "Manchester Metropolitan University (MMU)", location: "Manchester", link: "https://www.mmu.ac.uk" }
+      { name: "Teesside University", location: "Middlesbrough", link: "https://www.tees.ac.uk" }
+      { name: "Newcastle University", location: "Newcastle upon Tyne", link: "https://www.ncl.ac.uk" }
+      { name: "Northumbria University", location: "Newcastle", link: "https://www.northumbria.ac.uk" }
+      { name: "Oxford Brookes University", location: "Oxford", link: "https://www.brookes.ac.uk" }
+      { name: "Royal Holloway University", location: "London", link: "https://www.royalholloway.ac.uk" }
+      { name: "The University of York", location: "York", link: "https://www.york.ac.uk" }
+      { name: "Cardiff Metropolitan University", location: "Cardiff", link: "https://www.cardiffmet.ac.uk" }
+      { name: "University of South Wales", location: "Cardiff/Pontypridd", link: "https://www.southwales.ac.uk" }
+      { name: "Queen's University Belfast", location: "Belfast", link: "https://www.qub.ac.uk" }
+      { name: "Glasgow Caledonian University", location: "Glasgow", link: "https://www.gcu.ac.uk" }
+      { name: "University of Bath", location: "Bath", link: "https://www.bath.ac.uk" }
+    ]
+  }
+  {
+    id: "usa"
+    name: "United States"
+    flag: "🇺🇸"
+    glowColor: "rgba(60, 59, 110, 0.4)"
+    borderColor: "#3C3B6E"
+    tagline: "Explore elite education, lucrative scholarships, and a vibrant international community."
+    universities: [
+      { name: "Long Island University", location: "New York", link: "https://www.liu.edu" }
+      { name: "Queens College (GSSP)", location: "New York", link: "https://www.qc.cuny.edu" }
+      { name: "Mercy University", location: "New York", link: "https://www.mercy.edu" }
+      { name: "Berkeley College", location: "New York/New Jersey", link: "https://berkeleycollege.edu" }
+      { name: "Montclair State University", location: "Montclair, NJ", link: "https://www.montclair.edu" }
+      { name: "William Paterson University", location: "Wayne, NJ", link: "https://www.wpunj.edu" }
+      { name: "University of Bridgeport", location: "Bridgeport, CT", link: "https://www.bridgeport.edu" }
+      { name: "Illinois State University", location: "Normal, IL", link: "https://www.illinoisstate.edu" }
+      { name: "Texas State University", location: "San Marcos, TX", link: "https://www.txst.edu" }
+      { name: "University of North Texas", location: "Denton, TX", link: "https://www.unt.edu" }
+      { name: "Colorado State University", location: "Fort Collins, CO", link: "https://www.colostate.edu" }
+      { name: "Youngstown State University", location: "Youngstown, OH", link: "https://ysu.edu" }
+      { name: "Ashland University", location: "Ashland, OH", link: "https://www.ashland.edu" }
+      { name: "Emporia State University", location: "Emporia, KS", link: "https://www.emporia.edu" }
+      { name: "Wichita State University", location: "Wichita, KS", link: "https://www.wichita.edu" }
+      { name: "Pittsburg State University", location: "Pittsburg, KS", link: "https://www.pittstate.edu" }
+      { name: "Oregon State University", location: "Corvallis, OR", link: "https://www.oregonstate.edu" }
+      { name: "Florida Atlantic University", location: "Boca Raton, FL", link: "https://www.fau.edu" }
+      { name: "The University of Oklahoma", location: "Norman, OK", link: "https://www.ou.edu" }
+      { name: "Saint Louis University", location: "St. Louis, MO", link: "https://www.slu.edu" }
+      { name: "Webster University", location: "St. Louis, MO", link: "https://www.webster.edu" }
+      { name: "Murray State University", location: "Murray, KY", link: "https://www.murraystate.edu" }
+      { name: "Midway University", location: "Midway, KY", link: "https://www.midway.edu" }
+      { name: "University of Arizona", location: "Tucson, AZ", link: "https://www.arizona.edu" }
+      { name: "University of South Alabama", location: "Mobile, AL", link: "https://www.southalabama.edu" }
+      { name: "University of Alabama at Birmingham", location: "Birmingham, AL", link: "https://www.uab.edu" }
+      { name: "Thomas Jefferson University", location: "Philadelphia, PA", link: "https://www.jefferson.edu" }
+      { name: "University of Northern Iowa", location: "Cedar Falls, IA", link: "https://www.uni.edu" }
+      { name: "San Francisco State University", location: "San Francisco, CA", link: "https://www.sfsu.edu" }
+      { name: "California State University", location: "California", link: "https://www.calstate.edu" }
+    ]
+  }
+  {
+    id: "canada"
+    name: "Canada"
+    flag: "🇨🇦"
+    glowColor: "rgba(255, 0, 0, 0.3)"
+    borderColor: "#FF0000"
+    tagline: "Explore elite education, lucrative scholarships, and a vibrant international community."
+    universities: [
+      { name: "University of Manitoba", location: "Winnipeg, MB", link: "https://umanitoba.ca" }
+      { name: "International College of Manitoba (ICM)", location: "Winnipeg, MB", link: "https://www.icmcanada.ca" }
+      { name: "Toronto Metropolitan University", location: "Toronto, ON", link: "https://www.tmu.ca" }
+      { name: "University of Windsor", location: "Windsor, ON", link: "https://www.uwindsor.ca" }
+      { name: "Algoma University", location: "Sault Ste. Marie, ON", link: "https://www.algomau.ca" }
+      { name: "Laurentian University", location: "Sudbury, ON", link: "https://laurentian.ca" }
+      { name: "Lakehead University", location: "Thunder Bay, ON", link: "https://www.lakeheadu.ca" }
+      { name: "Trent University", location: "Peterborough, ON", link: "https://www.trentu.ca" }
+      { name: "University of Guelph", location: "Guelph, ON", link: "https://www.uoguelph.ca" }
+      { name: "Seneca College", location: "Toronto, ON", link: "https://www.senecacollege.ca" }
+      { name: "Centennial College", location: "Toronto, ON", link: "https://www.centennialcollege.ca" }
+      { name: "Ontario Tech University", location: "Oshawa, ON", link: "https://ontariotechu.ca" }
+      { name: "University of Niagara Falls", location: "Niagara Falls, ON", link: "https://www.niagara.edu" }
+      { name: "International Business University", location: "Toronto, ON", link: "https://www.ibu.edu" }
+      { name: "Carleton University", location: "Ottawa, ON", link: "https://carleton.ca" }
+      { name: "University of Saskatchewan", location: "Saskatoon, SK", link: "https://www.usask.ca" }
+      { name: "University of Regina", location: "Regina, SK", link: "https://www.uregina.ca" }
+      { name: "Fraser International College (FIC)", location: "Burnaby, BC", link: "https://www.fic.ubc.ca" }
+      { name: "NYIT - Vancouver", location: "Vancouver, BC", link: "https://www.nyit.edu/vancouver" }
+      { name: "University of Victoria", location: "Victoria, BC", link: "https://www.uvic.ca" }
+      { name: "University Canada West", location: "Vancouver, BC", link: "https://ucanwest.ca" }
+      { name: "Fairleigh Dickinson University", location: "Vancouver, BC", link: "https://www.fdu.edu" }
+      { name: "University of Fraser Valley", location: "Abbotsford, BC", link: "https://www.ufv.ca" }
+      { name: "Concordia University of Edmonton", location: "Edmonton, AB", link: "https://www.cue.edu" }
+      { name: "University of Alberta", location: "Edmonton, AB", link: "https://www.ualberta.ca" }
+      { name: "Dalhousie University", location: "Halifax, NS", link: "https://www.dal.ca" }
+      { name: "Cape Breton University", location: "Sydney, NS", link: "https://www.cbu.ca" }
+      { name: "University of New Brunswick - UNB", location: "New Brunswick", link: "https://www.unb.ca" }
+      { name: "Memorial University of Newfoundland", location: "St. John's, NL", link: "https://www.mun.ca" }
+    ]
+  }
+]
+
+window.STUDY_PAGE_CONTENT =
+  hero:
+    title: "Your Trusted <em style='color: var(--accent); font-style: normal'>Study Abroad Consultants</em>"
+    description: "From university selection to visa processing, we guide Noakhali students to top destinations."
+    ctas: []
+  destinationsSection:
+    title: "Choose Your Destination"
+    description: "Expert guidance for top-tier universities across the globe. We help you navigate the entire journey, from application to visa."
+  whySection:
+    title: "Why Mentors' Study Abroad?"
+    points: [
+      { title: "One-stop solution:", desc: "From preparation aid for standardized tests to university admission and visa process support." }
+      { title: "Experienced and expert counselors", desc: "Our team includes certified professionals with years of experience in international education." }
+    ]
+    certifications: ["AIRC", "ICEF Academy", "PIER", "Imagine Canada", "Education UK"]
+  benefits:
+    title: "Student Benefits"
+    items: ["Free Counseling", "Visa Assistance", "Scholarship Guidance", "Pre-Departure Briefing"]
+    footnote: "*Terms and conditions apply for specific services."
+  services:
+    title: "Our Services"
+    items: ["Career Counseling", "University Selection", "Application Processing", "Bank Document Guidance", "Visa Interview Prep", "Flight & Accommodation"]
+  notePoints:
+    title: "Important Notes"
+    groups: [
+      ["Check entry requirements", "Prepare documents early"]
+      ["Maintain good academic records", "Meet English proficiency"]
+    ]
+  readySection:
+    title: "Ready to Start?"
+    description: "Contact our Noakhali branch today for a free consultation."
+    ctas: [
+      { text: "Call Us", link: "tel:+8801321207486", class: "btn-primary", icon: "phone" }
+      { text: "Message Us", link: "https://wa.me/8801321207486", class: "btn-outline", icon: "message" }
+    ]
