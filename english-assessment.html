@@ -12,7 +12,7 @@
     />
     <link rel="icon" type="image/x-icon" href="Media/favicon.ico" />
     <style>
-      :root {
+      :root, [data-theme="dark"] {
         --bg: #0f1117;
         --s: #16181f;
         --s2: #1d2028;
@@ -28,6 +28,24 @@
         --rd: #ef4444;
         --hl: rgba(251, 191, 36, 0.28);
         --hlb: rgba(251, 191, 36, 0.65);
+      }
+
+      [data-theme="light"] {
+        --bg: #f9fafb;
+        --s: #ffffff;
+        --s2: #f3f4f6;
+        --s3: #e5e7eb;
+        --ac: #ff1a1a;
+        --ac2: #ff4444;
+        --t: #111827;
+        --m: #4b5563;
+        --br: #e5e7eb;
+        --gn: #16a34a;
+        --yw: #d97706;
+        --or: #ea580c;
+        --rd: #dc2626;
+        --hl: rgba(251, 191, 36, 0.45);
+        --hlb: rgba(251, 191, 36, 0.85);
       }
 
       *,
@@ -360,7 +378,7 @@
         cursor: pointer;
         border: 1.5px solid transparent;
         flex-shrink: 0;
-        background: #2a2d3a;
+        background: var(--s3);
         color: var(--m);
         transition: all 0.15s;
       }
@@ -513,7 +531,7 @@
 
       .pane-scroll p {
         margin-bottom: 12px;
-        color: #c5c9d6;
+        color: var(--m);
       }
 
       mark.hl {
