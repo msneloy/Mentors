@@ -1957,11 +1957,11 @@ a.course-card-link {
 
 /* ── Footer ────────────────────────────────────────────── */
 .footer {
-  background-color: var(--surface-2);
-  color: var(--text-muted);
+  background-color: #0a0a0a;
+  color: #9ca3af;
   padding: 60px 0 30px;
   font-size: 0.95rem;
-  border-top: 1px solid var(--border-color);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .footer-top {
@@ -2850,7 +2850,7 @@ a.course-card-link {
 }
 
 .email-btn {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   gap: 8px;
   background: rgba(33, 150, 243, 0.08);
@@ -2863,6 +2863,8 @@ a.course-card-link {
   border-radius: 8px;
   transition: var(--transition);
   width: 100%;
+  min-width: 0;
+  overflow: hidden;
 }
 
 .email-btn svg {
