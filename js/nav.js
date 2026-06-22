@@ -14,7 +14,7 @@ function initNav() {
   const navLinks = document.querySelector(".nav-links");
   const themeToggle = document.getElementById("theme-toggle");
 
-  if (hamburger && navLinks) {
+  if (hamburger && navLinks && !hamburger.dataset.listenerAttached) {
     hamburger.addEventListener("click", () =>
       navLinks.classList.toggle("active"),
     );
@@ -23,6 +23,7 @@ function initNav() {
       .forEach((a) =>
         a.addEventListener("click", () => navLinks.classList.remove("active")),
       );
+    hamburger.dataset.listenerAttached = "true";
   }
 
   if (themeToggle && !themeToggle.dataset.listenerAttached) {
