@@ -2794,7 +2794,7 @@ a.course-card-link {
 }
 
 .phone-btn {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   gap: 8px;
   background: rgba(255, 26, 26, 0.08);
@@ -2807,6 +2807,8 @@ a.course-card-link {
   border-radius: 8px;
   transition: var(--transition);
   width: 100%;
+  min-width: 0;
+  overflow: hidden;
 }
 
 .phone-btn svg {
@@ -2833,6 +2835,10 @@ a.course-card-link {
   opacity: 0.7;
   padding-left: 8px;
   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex-shrink: 1;
+  min-width: 0;
 }
 
 /* ── Email Buttons (contact page) ─────────────────────────*/
