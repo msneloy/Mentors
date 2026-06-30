@@ -139,7 +139,7 @@ h4 {
   height: 20px;
   stroke-width: 2.5px;
   transition: var(--transition);
-  filter: drop-shadow(0 0 2px rgba(0,0,0,0.1));
+  filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.1));
 }
 
 .sun-icon {
@@ -172,12 +172,12 @@ h4 {
   border-radius: 12px;
   position: relative;
   transition: var(--transition);
-  border: 1px solid rgba(255,255,255,0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 [data-theme="light"] .toggle-track {
   background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
-  border-color: rgba(0,0,0,0.1);
+  border-color: rgba(0, 0, 0, 0.1);
 }
 
 .toggle-thumb {
@@ -189,7 +189,7 @@ h4 {
   top: 2px;
   left: 2px;
   transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 [data-theme="light"] .toggle-thumb {
@@ -3220,7 +3220,11 @@ a.course-card-link {
   transform: translate(-50%, -50%);
   width: 600px;
   height: 300px;
-  background: radial-gradient(ellipse, rgba(255, 26, 26, 0.15) 0%, transparent 70%);
+  background: radial-gradient(
+    ellipse,
+    rgba(255, 26, 26, 0.15) 0%,
+    transparent 70%
+  );
   pointer-events: none;
 }
 .cerberus-badge {
@@ -3257,7 +3261,9 @@ a.course-card-link {
 }
 .cerberus-name {
   color: #ff1a1a;
-  text-shadow: 0 0 20px rgba(255, 26, 26, 0.7), 0 0 40px rgba(255, 26, 26, 0.3);
+  text-shadow:
+    0 0 20px rgba(255, 26, 26, 0.7),
+    0 0 40px rgba(255, 26, 26, 0.3);
 }
 .cerberus-subheading {
   font-size: 1.15rem;
@@ -3306,7 +3312,9 @@ a.course-card-link {
     0 0 50px rgba(255, 26, 26, 0.4),
     0 0 80px rgba(255, 26, 26, 0.2);
   animation: cerberus-pulse 2.5s ease-in-out infinite;
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
 }
 .cerberus-cta:hover {
   transform: scale(1.05);
@@ -3329,7 +3337,11 @@ a.course-card-link {
   border-bottom-color: rgba(255, 26, 26, 0.2);
 }
 [data-theme="light"] .cerberus-orb {
-  background: radial-gradient(ellipse, rgba(255, 26, 26, 0.08) 0%, transparent 70%);
+  background: radial-gradient(
+    ellipse,
+    rgba(255, 26, 26, 0.08) 0%,
+    transparent 70%
+  );
 }
 [data-theme="light"] .cerberus-badge {
   color: #cc0000;
@@ -3338,7 +3350,9 @@ a.course-card-link {
   color: #555;
 }
 [data-theme="light"] .cerberus-name {
-  text-shadow: 0 0 12px rgba(255, 26, 26, 0.35), 0 0 28px rgba(255, 26, 26, 0.15);
+  text-shadow:
+    0 0 12px rgba(255, 26, 26, 0.35),
+    0 0 28px rgba(255, 26, 26, 0.15);
 }
 [data-theme="light"] .cerberus-cta {
   animation: cerberus-pulse-light 2.5s ease-in-out infinite;
@@ -3355,7 +3369,8 @@ a.course-card-link {
 }
 
 @keyframes cerberus-pulse {
-  0%, 100% {
+  0%,
+  100% {
     box-shadow:
       0 0 20px rgba(255, 26, 26, 0.7),
       0 0 50px rgba(255, 26, 26, 0.4),
@@ -3369,7 +3384,8 @@ a.course-card-link {
   }
 }
 @keyframes cerberus-pulse-light {
-  0%, 100% {
+  0%,
+  100% {
     box-shadow:
       0 0 14px rgba(255, 26, 26, 0.5),
       0 0 35px rgba(255, 26, 26, 0.25),
@@ -3383,7 +3399,11 @@ a.course-card-link {
   }
 }
 @keyframes cerberus-blink {
-  0%, 100% { opacity: 1; }
-  50%      { opacity: 0.3; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
 }
-
